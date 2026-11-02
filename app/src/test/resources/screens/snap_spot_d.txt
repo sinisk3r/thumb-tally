@@ -1,0 +1,246 @@
+ScreenInfo(kind=null, creator=null, caption=null, key=null, settleMs=0)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout #content x=0-1440 y=0-3168
+      FrameLayout #0_resource_name_obfuscated x=0-1440 y=0-3168
+        FrameLayout #base_open_view x=0-1440 y=0-3168
+          FrameLayout x=0-1440 y=0-3168
+            FrameLayout #spotlight_container x=0-1440 y=0-3168
+              FrameLayout x=0-1440 y=0-3168
+                FrameLayout #0_resource_name_obfuscated x=0-1440 y=0-3168
+                  FrameLayout #opera_viewer x=0-1440 y=0-3168
+                    FrameLayout x=0-1440 y=0-3168
+                      FrameLayout x=0-1440 y=0-3104
+                        FrameLayout #0_resource_name_obfuscated [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            View [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                              ViewGroup [hidden] x=0-1440 y=0-0
+                                FrameLayout #0_resource_name_obfuscated [hidden] x=0-1440 y=0-0
+                                LinearLayout #0_resource_name_obfuscated [hidden] x=32-413 y=0--32
+                                  TextView #0_resource_name_obfuscated text="Gym Crush" [hidden] x=32-413 y=0--32
+                                LinearLayout #0_resource_name_obfuscated [hidden] x=1232-1424 y=0-0
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1232-1424 y=0--900
+                                    FrameLayout [hidden] x=1232-1424 y=0--964
+                                      ImageView [hidden] x=1248-1408 y=0--1056
+                                      ImageView #0_resource_name_obfuscated [hidden] x=1252-1404 y=0--1060
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1232-1424 y=0--900
+                                  ViewGroup #favorite [hidden] x=1240-1420 y=0--660
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=0--812
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=0--724
+                                    TextView #0_resource_name_obfuscated text=" " [hidden] x=1244-1420 y=0--660
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=0--420
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=0--572
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=0--484
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1348-1396 y=0--588
+                                      ImageView [hidden] x=1350-1394 y=0--590
+                                    TextView #0_resource_name_obfuscated text="4.6K" [hidden] x=1244-1420 y=0--420
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=0--180
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=0--332
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=0--244
+                                    TextView #0_resource_name_obfuscated text="64K" [hidden] x=1244-1420 y=0--180
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=0-0
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=0--92
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=0--4
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            ViewGroup [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                              View #0_resource_name_obfuscated [hidden] x=0-1440 y=0-0
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                              ViewGroup [hidden] x=0-1440 y=0-0
+                                ViewGroup [hidden] x=0-1440 y=0-0
+                                  ImageView [hidden] x=0-1440 y=0--1
+                                  javaClass [hidden] x=6307-1440 y=0--1
+                          FrameLayout [hidden] x=0-1440 y=0-0
+                            FrameLayout [hidden] x=0-1440 y=0-0
+                              FrameLayout #0_resource_name_obfuscated [hidden] x=0-1440 y=0-0
+                                LinearLayout [hidden] x=0-1440 y=0-0
+                                  View #0_resource_name_obfuscated [hidden] x=0-1440 y=0-0
+                        FrameLayout x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                        FrameLayout x=0-1440 y=0-2824
+                        FrameLayout #0_resource_name_obfuscated desc="opera_content_index:" x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                              ViewGroup x=0-1440 y=160-2824
+                                FrameLayout #0_resource_name_obfuscated x=0-1440 y=160-2824
+                                LinearLayout #0_resource_name_obfuscated x=32-581 y=2583-2681
+                                  TextView #0_resource_name_obfuscated text="James Condy" x=32-581 y=2583-2681
+                                LinearLayout #0_resource_name_obfuscated x=32-1216 y=2713-2792
+                                  ImageView x=32-80 y=2728-2776
+                                  TextView #0_resource_name_obfuscated text="Original sound · james_condy" x=96-747 y=2713-2792
+                                LinearLayout #0_resource_name_obfuscated x=1232-1424 y=1112-2824
+                                  ViewGroup #0_resource_name_obfuscated x=1232-1424 y=1112-1468
+                                    FrameLayout x=1232-1424 y=1112-1404
+                                      ImageView x=1248-1408 y=1152-1312
+                                      ImageView #0_resource_name_obfuscated x=1252-1404 y=1156-1308
+                                    ImageView #0_resource_name_obfuscated x=1232-1424 y=1280-1468
+                                  ViewGroup #favorite x=1240-1420 y=1468-1708
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=1556-1556
+                                    ImageView #0_resource_name_obfuscated x=1244-1420 y=1468-1644
+                                    TextView #0_resource_name_obfuscated text="22K" x=1244-1420 y=1628-1708
+                                  ViewGroup #0_resource_name_obfuscated x=1240-1420 y=1708-1948
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=1796-1796
+                                    ImageView #0_resource_name_obfuscated x=1244-1420 y=1708-1884
+                                    FrameLayout #0_resource_name_obfuscated x=1348-1396 y=1732-1780
+                                      ImageView x=1350-1394 y=1734-1778
+                                    TextView #0_resource_name_obfuscated text="51" x=1244-1420 y=1868-1948
+                                  ViewGroup #0_resource_name_obfuscated x=1240-1420 y=1948-2188
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=2036-2036
+                                    ImageView #0_resource_name_obfuscated x=1244-1420 y=1948-2124
+                                    TextView #0_resource_name_obfuscated text="761" x=1244-1420 y=2108-2188
+                                  ViewGroup #0_resource_name_obfuscated x=1240-1420 y=2188-2428
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=2276-2276
+                                    ImageView #0_resource_name_obfuscated x=1244-1420 y=2188-2364
+                                    TextView #0_resource_name_obfuscated text="559" x=1244-1420 y=2348-2428
+                                  ViewGroup #0_resource_name_obfuscated x=1240-1420 y=2428-2608
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=2516-2516
+                                    ImageView #0_resource_name_obfuscated x=1244-1420 y=2428-2604
+                                  FrameLayout #0_resource_name_obfuscated x=1264-1400 y=2656-2792
+                                    ImageView #0_resource_name_obfuscated x=1264-1400 y=2656-2792
+                                    View x=1264-1400 y=2656-2792
+                                    ImageView x=1304-1360 y=2696-2752
+                          FrameLayout x=0-1440 y=0-2824
+                            ViewGroup x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                              View #0_resource_name_obfuscated x=0-1440 y=0-2824
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                              ViewGroup x=0-1440 y=0-2824
+                                ViewGroup x=0-1440 y=160-2824
+                                  javaClass x=0-1440 y=161-2823
+                          FrameLayout x=0-1440 y=0-2824
+                            FrameLayout x=0-1440 y=0-2824
+                              FrameLayout #0_resource_name_obfuscated x=0-1440 y=2424-2824
+                                LinearLayout x=0-1440 y=2424-2824
+                                  View #0_resource_name_obfuscated x=0-1440 y=2760-2824
+                        FrameLayout #0_resource_name_obfuscated x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                              ViewGroup x=0-1440 y=2984-3104
+                                FrameLayout #0_resource_name_obfuscated x=0-1440 y=2984-3104
+                                LinearLayout #0_resource_name_obfuscated [hidden] x=32-309 y=5407-3104
+                                  TextView #0_resource_name_obfuscated text="Jalals" [hidden] x=32-309 y=5407-3104
+                                LinearLayout #0_resource_name_obfuscated [hidden] x=32-1216 y=5537-3104
+                                  ImageView [hidden] x=32-80 y=5552-3104
+                                  TextView #0_resource_name_obfuscated text="Original sound · jalalsofficial" [hidden] x=96-712 y=5537-3104
+                                LinearLayout #0_resource_name_obfuscated [hidden] x=1232-1424 y=3936-3104
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1232-1424 y=3936-3104
+                                    FrameLayout [hidden] x=1232-1424 y=3936-3104
+                                      ImageView [hidden] x=1248-1408 y=3976-3104
+                                      ImageView #0_resource_name_obfuscated [hidden] x=1252-1404 y=3980-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1232-1424 y=4104-3104
+                                  ViewGroup #favorite [hidden] x=1240-1420 y=4292-3104
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=4380-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=4292-3104
+                                    TextView #0_resource_name_obfuscated text="14K" [hidden] x=1244-1420 y=4452-3104
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=4532-3104
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=4620-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=4532-3104
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1348-1396 y=4556-3104
+                                      ImageView [hidden] x=1350-1394 y=4558-3104
+                                    TextView #0_resource_name_obfuscated text="187" [hidden] x=1244-1420 y=4692-3104
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=4772-3104
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=4860-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=4772-3104
+                                    TextView #0_resource_name_obfuscated text="1.4K" [hidden] x=1244-1420 y=4932-3104
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=5012-3104
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=5100-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=5012-3104
+                                    TextView #0_resource_name_obfuscated text="2.2K" [hidden] x=1244-1420 y=5172-3104
+                                  ViewGroup #0_resource_name_obfuscated [hidden] x=1240-1420 y=5252-3104
+                                    FrameLayout #0_resource_name_obfuscated [hidden] x=1240-1240 y=5340-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1244-1420 y=5252-3104
+                                  FrameLayout #0_resource_name_obfuscated [hidden] x=1264-1400 y=5480-3104
+                                    ImageView #0_resource_name_obfuscated [hidden] x=1264-1400 y=5480-3104
+                                    View [hidden] x=1264-1400 y=5480-3104
+                                    ImageView [hidden] x=1304-1360 y=5520-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            ViewGroup x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                              View #0_resource_name_obfuscated x=0-1440 y=2824-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                              ViewGroup x=0-1440 y=2824-3104
+                                ViewGroup x=0-1440 y=2984-3104
+                                  View x=0-1440 y=2985-3104
+                                  javaClass [hidden] x=6306-1440 y=2985-3104
+                          FrameLayout x=0-1440 y=2824-3104
+                            FrameLayout x=0-1440 y=2824-3104
+                              FrameLayout #0_resource_name_obfuscated [hidden] x=0-1440 y=5248-3104
+                                LinearLayout [hidden] x=0-1440 y=5248-3104
+                                  View #0_resource_name_obfuscated [hidden] x=0-1440 y=5584-3104
+                        View x=0-1440 y=2824-3104
+                FrameLayout x=0-1440 y=216-3168
+              View #0_resource_name_obfuscated [hidden] x=0-1440 y=3168-3168
+          FrameLayout x=0-1440 y=0-3168
+            FrameLayout x=0-1440 y=2824-3168
+              FrameLayout x=0-1440 y=2856-3104
+                LinearLayout #0_resource_name_obfuscated x=0-1440 y=2856-3104
+                  ViewGroup #ngs_map_icon_container desc="Map" x=0-326 y=2856-3096
+                    View x=131-259 y=2944-3072
+                  ViewGroup #ngs_chat_icon_container desc="Chat" x=326-588 y=2856-3096
+                    View x=393-521 y=2944-3072
+                    FrameLayout #0_resource_name_obfuscated x=465-561 y=2952-3016
+                      ImageView x=465-561 y=2952-3016
+                      View #0_resource_name_obfuscated x=485-541 y=2954-3014
+                        javaClass text="11" desc="" x=485-541 y=2954-3014
+                  ViewGroup #ngs_camera_icon_container desc="Camera" x=588-850 y=2856-3096
+                    View desc="Camera" x=655-783 y=2944-3072
+                  ViewGroup #ngs_community_icon_container desc="Stories" x=850-1112 y=2856-3096
+                    View x=917-1045 y=2944-3072
+                    FrameLayout #0_resource_name_obfuscated x=989-1045 y=2944-3000
+                      ImageView x=989-1045 y=2944-3000
+                  ViewGroup #ngs_spotlight_icon_container desc="Spotlight" x=1112-1438 y=2856-3096
+                    View x=1179-1307 y=2944-3072
+                View x=64-1376 y=2896-3096
+          FrameLayout #0_resource_name_obfuscated x=0-1440 y=160-3168
+            FrameLayout #0_resource_name_obfuscated x=0-1440 y=160-3168
+              FrameLayout #0_resource_name_obfuscated x=0-212 y=160-376
+                View #0_resource_name_obfuscated x=32-192 y=184-344
+                FrameLayout #neon_header_avatar desc="Story sent" x=40-184 y=192-336
+                  ImageView #0_resource_name_obfuscated x=40-184 y=195-336
+                FrameLayout x=144-188 y=172-236
+                  ImageView x=144-188 y=182-226
+              FrameLayout #hova_header_search_icon desc="Search" x=232-392 y=184-344
+                ImageView x=252-372 y=204-324
+              TextView #0_resource_name_obfuscated text="Spotlight" x=590-849 y=160-376
+              ImageView x=1244-1404 y=184-344
+              FrameLayout x=1048-1208 y=184-344
+                View x=1048-1208 y=184-344
+                FrameLayout #neon_add_friend_button_container x=1068-1208 y=200-320
+                  ImageView #0_resource_name_obfuscated desc="Add friends" x=1068-1196 y=200-320
+                  FrameLayout #0_resource_name_obfuscated x=1164-1208 y=200-240
+                    ImageView x=1164-1208 y=200-240
+                    View #0_resource_name_obfuscated x=1182-1208 y=200-240
+                      javaClass text="1" desc="" x=1182-1210 y=176-240
+        SurfaceView #0_resource_name_obfuscated x=0-1440 y=160-2720
+        View x=0-1440 y=3104-3168
+  View #statusBarBackground [hidden] x=0-1440 y=0-160

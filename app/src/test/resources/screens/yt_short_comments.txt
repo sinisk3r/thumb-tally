@@ -1,0 +1,76 @@
+ScreenInfo(kind=SHORT, creator=null, caption=null)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+            FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+              ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-3168
+                FrameLayout #global_slim_status_bar_container x=0-1440 y=0-3168
+                FrameLayout #accessibility_layer_container x=0-1440 y=0-3168
+                  FrameLayout #fullscreen_mode_container [hidden] x=0-1440 y=0-0
+                  ViewGroup #app_engagement_panel_wrapper x=0-1440 y=0-3168
+                    RelativeLayout #app_engagement_panel x=0-1440 y=950-3168
+                      LinearLayout #header_container x=0-1440 y=1110-1474
+                        LinearLayout x=0-1440 y=1110-1474
+                          ImageView #arrow_drag_handle desc="Drag handle" x=640-800 y=1110-1158
+                          FrameLayout #panel_header_wrapper x=0-1440 y=1158-1470
+                            LinearLayout x=0-1440 y=1158-1470
+                              LinearLayout x=0-1440 y=1158-1470
+                                FrameLayout #panel_header x=0-1248 y=1158-1470
+                                  LinearLayout desc="Comments. 1.1K" x=0-1248 y=1158-1470
+                                    FrameLayout #top_content_container x=0-1248 y=1158-1278
+                                      ViewGroup x=0-1248 y=1158-1278
+                                        HorizontalScrollView x=0-1248 y=1158-1278
+                                          ViewGroup x=0-1248 y=1158-1278
+                                            Button x=64-974 y=1190-1278
+                                              ViewGroup text="Search:" desc="Search:" x=64-250 y=1206-1278
+                                              ViewGroup text="tesla roadster release date" desc="tesla roadster release date" x=266-926 y=1206-1278
+                                              ImageView x=934-974 y=1206-1246
+                                    LinearLayout #horizontal_title_row x=0-1248 y=1278-1470
+                                      ViewGroup x=0-1056 y=1295-1453
+                                        LinearLayout #title_container x=64-456 y=1327-1421
+                                          TextView #modern_title text="Comments" x=64-456 y=1327-1421
+                                        TextView #modern_contextual_info text="1.1K" x=504-587 y=1341-1407
+                                      ImageView #sort_menu_anchor desc="Sort comments" x=1056-1248 y=1278-1470
+                                ImageView #close_button desc="Close" x=1248-1440 y=1278-1470
+                          View #panel_header_bottom_border x=0-1440 y=1470-1474
+                      LinearLayout #panel_content_touch_wrapper x=0-1440 y=1474-3168
+                        FrameLayout #panel_content x=0-1440 y=1474-3168
+                          FrameLayout x=0-1440 y=1474-3168
+                            FrameLayout x=0-1440 y=1474-3168
+                              ProgressBar #load_progress x=608-832 y=2209-2433
+                  ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-3168
+                    ViewGroup #watch_while_layout_coordinator_layout x=0-1440 y=0-3168
+                      FrameLayout #fab_container x=0-1440 y=0-3168
+                      FrameLayout #pane_fragment_container x=0-1440 y=0-3168
+                        ScrollView #browse_fragment_layout_coordinator_layout x=0-1440 y=0-3168
+                          FrameLayout #pane_fragment_contents x=0-1440 y=0-3168
+                            FrameLayout x=0-1440 y=0-3168
+                              FrameLayout #fragment_container_view x=0-1440 y=0-2912
+                                LinearLayout x=0-1440 y=0-2912
+                                  FrameLayout #reel_watch_fragment_root x=0-1440 y=160-2912
+                                    FrameLayout #reel_player_underlay x=0-1440 y=160-2912
+                                    FrameLayout #nerd_stats_container x=0-1440 y=160-2912
+                                      RelativeLayout x=0-1440 y=160-2912
+                                    ViewGroup #reel_watch_refresher x=0-1440 y=160-2912
+                                      RecyclerView #reel_recycler x=0-1440 y=160-2912
+                                        FrameLayout #reel_player_page_container x=0-1440 y=160-2912
+                                          FrameLayout #reel_player_page_content x=0-1440 y=160-1110
+                                            FrameLayout x=0-1440 y=160-1110
+                                              FrameLayout #reel_player_overlay_root x=0-1440 y=160-1110
+                                    ViewGroup #reel_watch_player x=0-1440 y=160-1110
+                                      FrameLayout x=0-1440 y=160-1110
+                                      ViewGroup x=453-987 y=160-1110
+                                        ViewGroup x=453-987 y=160-1110
+                                          SurfaceView x=453-987 y=160-1110
+                                    View #reel_scrim_shorts_while_top x=0-1440 y=160-544
+                      FrameLayout #root_pill_container [hidden] x=0-1440 y=2816-2816
+                      FrameLayout #pane_fragment_footer_container [hidden] x=0-1440 y=3168-3168
+                  FrameLayout #bottom_bar_container [hidden] x=0-1440 y=3168-3168
+              FrameLayout [hidden] x=0-1440 y=0-160
+                View #global_status_bar_view [hidden] x=0-1440 y=0-160
+              View [hidden] x=0-4 y=0-4
+          ViewGroup #reel_time_bar x=0-1440 y=0-3168

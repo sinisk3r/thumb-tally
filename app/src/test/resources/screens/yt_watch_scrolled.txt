@@ -1,0 +1,173 @@
+ScreenInfo(kind=SHORT, creator=null, caption=null)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+            FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+              ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-3168
+                FrameLayout #global_slim_status_bar_container x=0-1440 y=0-3168
+                FrameLayout #accessibility_layer_container x=0-1440 y=0-3168
+                  FrameLayout #fullscreen_mode_container [hidden] x=0-1440 y=0-0
+                  ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-3168
+                    ViewGroup #next_gen_watch_layout_no_player_fragment_container x=0-1440 y=0-3168
+                      FrameLayout #watch_player desc="Video player" x=0-1440 y=160-970
+                        FrameLayout #player_fragment_container x=0-1440 y=160-970
+                          ViewGroup #player_view x=0-1440 y=160-970
+                            ViewGroup x=0-1440 y=160-970
+                              ViewGroup x=0-1440 y=160-970
+                                SurfaceView x=0-1440 y=160-970
+                        ViewGroup #player_overlays x=0-1440 y=160-970
+                          FrameLayout #player_overlays_custom_views_container x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                            FrameLayout x=0-1440 y=160-970
+                          RelativeLayout x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                          View [hidden] x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                            FrameLayout x=0-1440 y=160-970
+                              ViewGroup x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                            FrameLayout x=0-1440 y=160-970
+                              ViewGroup [hidden] x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                            FrameLayout x=0-1440 y=160-970
+                              ViewGroup [hidden] x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                            FrameLayout x=0-1440 y=160-970
+                              ViewGroup x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                            FrameLayout #youtube_controls_overlay x=0-1440 y=160-970
+                              FrameLayout #inset_controls_overlay_wrapper x=0-1440 y=160-970
+                                FrameLayout #inset_overlay_view_layout x=0-1440 y=160-970
+                                  ViewGroup #watch_while_time_bar_view_overlay x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                          FrameLayout x=0-1440 y=160-970
+                        View x=0-1 y=160-161
+                      ViewGroup #watch_while_time_bar_view x=0-1440 y=160-1038
+                        SeekBar desc="0 minutes 13 seconds of 0 minutes 19 seconds" x=0-1440 y=894-1038
+                      ViewGroup #engagement_panel_wrapper x=0-1440 y=160-3168
+                      FrameLayout #video_metadata_layout x=0-1440 y=970-3168
+                        View #watch_panel_scrim x=0-1440 y=970-3168
+                        ViewGroup #watch_panel x=0-1440 y=970-3168
+                          FrameLayout x=0-1440 y=970-3168
+                            FrameLayout #video_info_loading_layout x=0-1440 y=970-3168
+                              FrameLayout #sticky_header_container x=0-1440 y=970-3168
+                                RecyclerView #watch_list [scrollable] x=0-1440 y=970-3168
+                                  ViewGroup x=0-1440 y=970-1015
+                                    ViewGroup [hidden] x=0-1440 y=0-970
+                                      ImageView [hidden] x=64-208 y=0-970
+                                      ViewGroup desc="Shorts" [hidden] x=256-466 y=0-970
+                                        ViewGroup text="Shorts" desc="Shorts" [hidden] x=256-466 y=0-970
+                                    ViewGroup [hidden] x=0-1440 y=919-970
+                                      RecyclerView [hidden] [scrollable] x=0-1440 y=919-970
+                                        ViewGroup [hidden] x=64-712 y=919-970
+                                          Button desc="How The Anti Paparazzi Scarf Works 😮, 22 million views - play Short" [hidden] x=64-664 y=919-970
+                                            ViewGroup [hidden] x=64-664 y=919-970
+                                              ImageView [hidden] x=64-664 y=919-970
+                                              ViewGroup [hidden] x=64-664 y=919-970
+                                                ImageView [hidden] x=64-664 y=919-970
+                                              ViewGroup [hidden] x=504-664 y=79-970
+                                                Button desc="More actions" [hidden] x=576-648 y=23-970
+                                              ViewGroup [hidden] x=64-664 y=919-970
+                                                ViewGroup [hidden] x=96-632 y=887-970
+                                                  ViewGroup [hidden] x=96-632 y=806-970
+                                                    ViewGroup text="How The Anti Paparazzi Scarf Works 😮" desc="How The Anti Paparazzi Scarf Works 😮" [hidden] x=96-632 y=806-970
+                                                  ViewGroup [hidden] x=96-632 y=887-970
+                                                    ViewGroup text="22M views" desc="22M views" [hidden] x=96-632 y=887-970
+                                        ViewGroup [hidden] x=712-1360 y=919-970
+                                          Button desc="Elon Musk vs SQL 😭, 11 million views - play Short" [hidden] x=712-1312 y=919-970
+                                            ViewGroup [hidden] x=712-1312 y=914-970
+                                              ImageView [hidden] x=712-1312 y=914-970
+                                              ViewGroup [hidden] x=712-1312 y=914-970
+                                                ImageView [hidden] x=712-1312 y=914-970
+                                              ViewGroup [hidden] x=1152-1312 y=74-970
+                                                Button desc="More actions" [hidden] x=1224-1296 y=18-970
+                                              ViewGroup [hidden] x=712-1312 y=914-970
+                                                ViewGroup [hidden] x=744-1280 y=882-970
+                                                  ViewGroup [hidden] x=744-1280 y=801-970
+                                                    ViewGroup text="Elon Musk vs SQL 😭" desc="Elon Musk vs SQL 😭" [hidden] x=744-1280 y=801-970
+                                                  ViewGroup [hidden] x=744-1280 y=882-970
+                                                    ViewGroup text="11M views" desc="11M views" [hidden] x=744-1280 y=882-970
+                                        ViewGroup [hidden] x=1360-1440 y=919-970
+                                          Button desc="Evil animal is evil | @DIEMARCHIVE, 1.9 million views - play Short" [hidden] x=1360-1440 y=914-970
+                                            ViewGroup [hidden] x=1360-1440 y=914-970
+                                              ImageView [hidden] x=1360-1440 y=914-970
+                                              ViewGroup [hidden] x=1360-1440 y=914-970
+                                                ImageView [hidden] x=1360-1440 y=914-970
+                                              ViewGroup [hidden] x=1440-1440 y=74-970
+                                                Button desc="More actions" [hidden] x=1440-1440 y=18-970
+                                              ViewGroup [hidden] x=1360-1440 y=914-970
+                                                ViewGroup [hidden] x=1392-1440 y=882-970
+                                                  ViewGroup [hidden] x=1392-1440 y=801-970
+                                                    ViewGroup text="Evil animal is evil | @DIEMARCHIVE" desc="Evil animal is evil | @DIEMARCHIVE" [hidden] x=1392-1440 y=801-970
+                                                  ViewGroup [hidden] x=1392-1440 y=882-970
+                                                    ViewGroup text="1.9M views" desc="1.9M views" [hidden] x=1392-1440 y=882-970
+                                  xzr x=0-1440 y=1015-1047
+                                  ViewGroup x=0-1440 y=1047-3025
+                                    ViewGroup x=0-1440 y=1042-3020
+                                      ViewGroup x=0-1440 y=1042-3020
+                                        ViewGroup x=0-1424 y=1042-1210
+                                          Button desc="Near" x=48-192 y=1054-1198
+                                          ViewGroup x=240-1264 y=1042-1210
+                                            ViewGroup text="Near" desc="Near" x=240-360 y=1042-1118
+                                            ViewGroup x=240-573 y=1134-1210
+                                              ViewGroup text="23 hours ago" desc="23 hours ago" x=240-573 y=1134-1210
+                                            Button desc="Subscribe to Near." x=950-1264 y=1062-1190
+                                              ViewGroup text="Subscribe" desc="Subscribe" x=998-1216 y=1097-1154
+                                          Button desc="Action menu" x=1312-1408 y=1078-1174
+                                        ViewGroup x=64-1376 y=1246-1332
+                                          ViewGroup desc="Good Heavens" x=64-485 y=1246-1332
+                                            ViewGroup text="Good Heavens" desc="Good Heavens" x=64-485 y=1246-1332
+                                        ViewGroup x=0-1440 y=1372-2812
+                                          Button desc="Image attachment" x=0-1440 y=1372-2812
+                                        ViewGroup x=0-1440 y=2844-3004
+                                          ViewGroup x=16-560 y=2844-3004
+                                            Button desc="Like" x=32-192 y=2876-2972
+                                              ViewGroup x=32-192 y=2876-2972
+                                                ImageView x=32-192 y=2876-2972
+                                            ViewGroup x=192-352 y=2876-2972
+                                              ViewGroup text="7.2K likes" desc="7.2K likes" x=192-297 y=2886-2962
+                                            Button desc="Dislike" x=416-512 y=2876-2972
+                                          Button desc="Share" x=791-967 y=2876-2972
+                                            ImageView x=831-927 y=2876-2972
+                                          ViewGroup x=967-1183 y=2850-2998
+                                            Button desc="Quote" x=975-1135 y=2850-2998
+                                              ImageView x=1007-1103 y=2882-2978
+                                            ViewGroup [hidden] x=1055-1055 y=2994-2994
+                                          Button desc="Comment" x=1183-1440 y=2876-2972
+                                            ImageView x=1183-1279 y=2876-2972
+                                            ViewGroup x=1311-1376 y=2876-2972
+                                              ViewGroup text="76 comments" desc="76 comments" x=1311-1376 y=2886-2962
+                                  xzr x=0-1440 y=3025-3057
+                                  ViewGroup x=0-1440 y=3057-3168
+                                    Button desc="Conan O'Brien Defends His 5 Most Controversial Takes | SubwayTakes Uncut - 27 minutes, 46 seconds -  - SubwayTakes with Kareem Rahma and 2 more, Verified - 998 thousand views - 1 day ago - play video" x=0-1440 y=3052-3168
+                                      ViewGroup x=0-1440 y=3052-3168
+                                        ImageView x=0-1440 y=3052-3168
+                                        ViewGroup desc="27 minutes, 46 seconds" [hidden] x=1238-1408 y=3168-3168
+                                          ViewGroup text="27:46" desc="27:46" [hidden] x=1262-1384 y=3168-3168
+                                        ImageView [hidden] x=0-144 y=3168-3168
+                                      ViewGroup [hidden] x=0-1440 y=3168-3168
+                                        Button desc="Collaboration channels" [hidden] x=48-176 y=3168-3168
+                                          ViewGroup [hidden] x=48-176 y=3168-3168
+                                            ViewGroup [hidden] x=48-120 y=3168-3168
+                                              ImageView [hidden] x=48-120 y=3168-3168
+                                            ViewGroup [hidden] x=76-148 y=3168-3168
+                                              ImageView [hidden] x=76-148 y=3168-3168
+                                            ViewGroup [hidden] x=104-176 y=3168-3168
+                                              ImageView [hidden] x=104-176 y=3168-3168
+                                        ViewGroup [hidden] x=208-1216 y=3168-3168
+                                          ViewGroup [hidden] x=208-1216 y=3168-3168
+                                            ViewGroup [hidden] x=208-1216 y=3168-3168
+                                              ViewGroup [hidden] x=208-1216 y=3168-3168
+                                                ViewGroup text="Conan O'Brien Defends His 5 Most Controversial Takes | SubwayTakes Uncut" desc="Conan O'Brien Defends His 5 Most Controversial Takes | SubwayTakes Uncut" [hidden] x=208-1216 y=3168-3168
+                                              ViewGroup [hidden] x=208-1216 y=3168-3168
+                                                ViewGroup text="SubwayTakes with Kareem Rahma and 2 more, 998 thousand views, 1 day ago" desc="SubwayTakes with Kareem Rahma and 2 more, 998 thousand views, 1 day ago" [hidden] x=208-1216 y=3168-3168
+                                        Button desc="Action menu" [hidden] x=1248-1344 y=3168-3168
+                    View #scrim_view x=0-1440 y=160-3168
+                  FrameLayout #bottom_bar_container [hidden] x=0-1440 y=3168-3168
+              FrameLayout [hidden] x=0-1440 y=0-160
+              View [hidden] x=0-4 y=0-4
+          ViewGroup #reel_time_bar x=0-1440 y=0-3168

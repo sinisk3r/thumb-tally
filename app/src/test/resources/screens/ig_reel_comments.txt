@@ -1,0 +1,310 @@
+ScreenInfo(kind=SHORT, creator=lord.farquaad.sol, caption=robinraoufsaleh said Where this guy been my whole life)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          FrameLayout x=0-1440 y=0-3168
+            FrameLayout #swipe_navigation_container x=0-1440 y=0-3168
+              ViewGroup #layout_container_center_right_coordinator_layout x=0-1440 y=0-3104
+                FrameLayout #layout_container_right x=0-1440 y=160-3104
+                FrameLayout #activity_and_camera_shared_views_main_container x=0-1440 y=160-3104
+                  FrameLayout #bottom_sheet_container x=0-1440 y=160-3104
+                    Button #background_dimmer desc="@2131955927" [hidden] x=0-1440 y=160-3104
+                    FrameLayout #layout_container_bottom_sheet x=0-1440 y=160-3104
+                      ViewGroup #bottom_sheet_container x=0-1440 y=1338-3104
+                        FrameLayout #bottom_sheet_drag_handle_frame x=0-1440 y=1338-1442
+                          ImageView #bottom_sheet_drag_handle_prism x=656-784 y=1338-1442
+                        ViewGroup #nav_buttons_and_title_container [hidden] x=0-1440 y=1442-1442
+                        FrameLayout #bottom_sheet_container_view x=0-1440 y=1442-3104
+                          LinearLayout x=0-1440 y=1442-3104
+                            LinearLayout #layout_meta_ai_scrollable_component x=0-1440 y=1442-1567
+                              HorizontalScrollView x=0-1440 y=1442-1567
+                                LinearLayout #prompt_container x=0-837 y=1442-1567
+                                  ImageView #icon x=80-141 y=1474-1535
+                                  TextView #prompt_text_view text="Search · Shrek dance trend" x=173-781 y=1474-1535
+                            FrameLayout #list_view_container x=0-1440 y=1567-2750
+                              FrameLayout #comment_overswipe_dismiss_container x=0-1440 y=1567-2750
+                                ViewGroup #main_list_view x=0-1440 y=1567-2750
+                                  ViewGroup #recycler_view_container_id x=0-1440 y=1567-2750
+                                    RecyclerView #sticky_header_list [scrollable] x=0-1440 y=1567-2750
+                                      ViewGroup x=0-1440 y=1567-1568
+                                      ViewGroup [hidden] x=0-1440 y=1568-1568
+                                      ViewGroup x=0-1440 y=1568-1870
+                                        ViewGroup x=0-1440 y=1568-1870
+                                          ImageView desc="Go to robinraoufsaleh's profile" x=64-208 y=1616-1760
+                                          ViewGroup x=224-1216 y=1568-1870
+                                            ViewGroup x=224-1216 y=1600-1748
+                                              TextView text="robinraoufsaleh " desc="robinraoufsaleh " x=260-630 y=1600-1661
+                                              ViewGroup text="3 October" desc="3 October" x=634-701 y=1600-1661
+                                              ViewGroup text="robinraoufsaleh said Where this guy been my whole life" desc="robinraoufsaleh said Where this guy been my whole life" x=260-1145 y=1677-1748
+                                            Button text="Reply" desc="Reply" x=260-451 y=1748-1870
+                                          Button desc="1894 likes. Double tap to like comment and press and hold to see all likes" x=1216-1440 y=1568-1808
+                                            ImageView desc="Like" x=1216-1440 y=1568-1744
+                                            View text="1,894" x=1268-1387 y=1744-1802
+                                      Button x=0-1440 y=1870-1955
+                                        ViewGroup x=216-348 y=1899-1903
+                                        Button text="View 3 more replies" desc="View 3 more replies" x=384-827 y=1870-1931
+                                      ViewGroup x=0-1440 y=1955-2257
+                                        ViewGroup x=0-1440 y=1955-2257
+                                          ImageView desc="Go to ji.zhh's profile" x=64-208 y=2003-2147
+                                          ViewGroup x=224-1216 y=1955-2257
+                                            ViewGroup x=224-1216 y=1987-2135
+                                              TextView text="ji.zhh " desc="ji.zhh " x=260-394 y=1987-2048
+                                              ViewGroup text="3 October" desc="3 October" x=398-465 y=1987-2048
+                                              ViewGroup text="ji.zhh said Why tf are there 100 variants of it" desc="ji.zhh said Why tf are there 100 variants of it" x=260-1124 y=2064-2135
+                                            Button text="Reply" desc="Reply" x=260-451 y=2135-2257
+                                          Button desc="918 likes. Double tap to like comment and press and hold to see all likes" x=1216-1440 y=1955-2195
+                                            ImageView desc="Like" x=1216-1440 y=1955-2131
+                                            View text="918" x=1289-1366 y=2131-2189
+                                      Button x=0-1440 y=2257-2342
+                                        ViewGroup x=216-348 y=2286-2290
+                                        Button text="View 2 more replies" desc="View 2 more replies" x=384-827 y=2257-2318
+                                      ViewGroup x=0-1440 y=2342-2750
+                                        ViewGroup x=0-1440 y=2342-2750
+                                          ImageView desc="Go to joaco31144's profile" x=64-208 y=2390-2534
+                                          ViewGroup x=224-1216 y=2342-2750
+                                            ViewGroup x=224-1216 y=2374-2750
+                                              TextView text="joaco31144 " desc="joaco31144 " x=260-522 y=2374-2435
+                                              ViewGroup text="3 October" desc="3 October" x=526-593 y=2374-2435
+                                              FrameLayout #animated_image_container x=260-1156 y=2459-2750
+                                                ImageView #animated_image x=260-1156 y=2459-2750
+                                          Button desc="355 likes. Double tap to like comment and press and hold to see all likes" x=1216-1440 y=2342-2582
+                                            ImageView desc="Like" x=1216-1440 y=2342-2518
+                                            View text="355" x=1285-1371 y=2518-2576
+                            View x=0-1440 y=2750-2751
+                            ViewGroup #above_composer_views x=0-1440 y=2751-2912
+                              ViewGroup x=0-1440 y=2751-2752
+                              FrameLayout x=32-176 y=2768-2912
+                                Button #item_emoji desc="❤️" x=32-176 y=2768-2912
+                              FrameLayout x=208-352 y=2768-2912
+                                Button #item_emoji desc="🙌" x=208-352 y=2768-2912
+                                ImageView #item_emoji_overlay x=208-352 y=2768-2912
+                              FrameLayout x=384-528 y=2768-2912
+                                Button #item_emoji desc="🔥" x=384-528 y=2768-2912
+                              FrameLayout x=560-704 y=2768-2912
+                                Button #item_emoji desc="👏" x=560-704 y=2768-2912
+                                ImageView #item_emoji_overlay x=560-704 y=2768-2912
+                              FrameLayout x=736-880 y=2768-2912
+                                Button #item_emoji desc="😢" x=736-880 y=2768-2912
+                              FrameLayout x=912-1056 y=2768-2912
+                                Button #item_emoji desc="😍" x=912-1056 y=2768-2912
+                              FrameLayout x=1088-1232 y=2768-2912
+                                Button #item_emoji desc="😮" x=1088-1232 y=2768-2912
+                              FrameLayout x=1264-1408 y=2768-2912
+                                Button #item_emoji desc="😂" x=1264-1408 y=2768-2912
+                            ViewGroup #comment_composer_parent_updated x=0-1440 y=2944-3104
+                              ImageView #comment_composer_left_image_view desc="Profile picture" x=48-192 y=2944-3088
+                              ViewGroup #comment_composer_text_parent x=224-1384 y=2944-3088
+                                FrameLayout #edittext_container x=224-1064 y=2944-3088
+                                  AutoCompleteTextView #layout_comment_thread_edittext_multiline text="What do you think of this?" x=224-1064 y=2944-3088
+                                Button #comment_composer_media_picker_button desc="Media" x=1064-1224 y=2968-3064
+                                Button #comment_composer_animated_image_picker_button desc="Sticker" x=1224-1384 y=2968-3064
+                              View #comments_composer_bottom_padding x=0-1440 y=3088-3104
+                    FrameLayout #bottom_sheet_expandable_footer [hidden] x=0-1440 y=3104-3104
+                ViewGroup #layout_container_main_panel x=0-1440 y=160-3104
+                  FrameLayout #layout_container_main_wrapper x=0-1440 y=160-3104
+                    FrameLayout #layout_container_main x=0-1440 y=160-2912
+                    ViewPager #swipeable_tab_view_pager [scrollable] x=0-1440 y=160-2912
+                      RecyclerView #swipeable_nav_view_pager_inner_recycler_view [scrollable] x=0-1440 y=160-2912
+                        FrameLayout [hidden] x=0-0 y=160-2912
+                          FrameLayout #layout_container_swipeable [hidden] x=0-0 y=160-2912
+                            FrameLayout [hidden] x=0-0 y=160-2912
+                              FrameLayout #sticky_header_list [hidden] x=0-0 y=160-2912
+                                FrameLayout #refreshable_container [hidden] x=0-0 y=160-2912
+                                  RecyclerView #list [hidden] [scrollable] x=0-0 y=160-2912
+                                    View #gap_binder_group [hidden] x=0-0 y=160-384
+                                    LinearLayout [hidden] x=0-0 y=384-902
+                                      FrameLayout #reels_tray_container [hidden] x=0-0 y=384-902
+                                        RecyclerView desc="reels tray container" [hidden] [scrollable] x=0-0 y=384-902
+                                          LinearLayout #outer_container [hidden] x=0--1047 y=384-902
+                                            FrameLayout #avatar_view [hidden] x=0--1047 y=432-809
+                                              Button desc="my_account's story, 0 of 27, Unseen." [hidden] x=0--1047 y=432-809
+                                                FrameLayout #avatar_container [hidden] x=0--1047 y=432-809
+                                                  ImageView #avatar_image_view desc="my_account's story, 0 of 27, Unseen." [hidden] x=0--1099 y=483-773
+                                                  ImageView #reel_empty_badge [hidden] x=0--1079 y=690-793
+                                            ViewGroup #title_container [hidden] x=0--1047 y=809-870
+                                              TextView #username text="Your story" [hidden] x=0--1128 y=809-870
+                                          LinearLayout #outer_container [hidden] x=0--654 y=384-902
+                                            FrameLayout #avatar_view [hidden] x=0--654 y=432-809
+                                              Button desc="friend_two's story, 1 of 27, Unseen." [hidden] x=0--654 y=432-809
+                                                FrameLayout #avatar_container [hidden] x=0--654 y=432-809
+                                                  View #seen_state [hidden] x=0--678 y=456-801
+                                                  ImageView #avatar_image_view desc="friend_two's story, 1 of 27, Unseen." [hidden] x=0--706 y=483-773
+                                            ViewGroup #title_container [hidden] x=0--654 y=809-870
+                                              TextView #username text="friend_two" [hidden] x=0--716 y=809-870
+                                          LinearLayout #outer_container [hidden] x=0--261 y=384-902
+                                            FrameLayout #avatar_view [hidden] x=0--261 y=432-809
+                                              Button desc="friend_four's story, 2 of 27, Unseen." [hidden] x=0--261 y=432-809
+                                                FrameLayout #avatar_container [hidden] x=0--261 y=432-809
+                                                  View #seen_state [hidden] x=0--285 y=456-801
+                                                  ImageView #avatar_image_view desc="friend_four's story, 2 of 27, Unseen." [hidden] x=0--313 y=483-773
+                                            ViewGroup #title_container [hidden] x=0--261 y=809-870
+                                              TextView #username text="friend_four" [hidden] x=0--298 y=809-870
+                                          LinearLayout #outer_container [hidden] x=0-0 y=384-902
+                                            FrameLayout #avatar_view [hidden] x=0-0 y=432-809
+                                              Button desc="friend_three's story, 3 of 27, Unseen." [hidden] x=0-0 y=432-809
+                                                FrameLayout #avatar_container [hidden] x=0-0 y=432-809
+                                                  View #seen_state [hidden] x=0-0 y=456-801
+                                                  ImageView #avatar_image_view desc="friend_three's story, 3 of 27, Unseen." [hidden] x=0-0 y=483-773
+                                            ViewGroup #title_container [hidden] x=0-0 y=809-870
+                                              TextView #username text="friend_three" [hidden] x=0-0 y=809-870
+                                    ViewGroup [hidden] x=0-0 y=902-2912
+                                      ViewGroup #video_container [hidden] x=0-0 y=902-2912
+                                        FrameLayout #video_container [hidden] x=0-0 y=902-2912
+                                          FrameLayout #media_group [hidden] x=0-0 y=902-2912
+                                            SurfaceView [hidden] x=0-0 y=902-2912
+                                        ViewGroup #video_container [hidden] x=0-0 y=902-2912
+                                          ViewGroup [hidden] x=0-0 y=902-2912
+                                            FrameLayout [hidden] x=0-0 y=902-2912
+                                              FrameLayout [hidden] x=0-0 y=902-2912
+                                            FrameLayout [hidden] x=0-0 y=902-2912
+                                              ViewGroup [hidden] x=0-0 y=902-2912
+                                                View #feed_preview_keep_watching_backdrop [hidden] x=0-0 y=902-2912
+                                                LinearLayout #feed_preview_cta_container [hidden] x=0--365 y=2086-2278
+                                                  Button #feed_preview_keep_watching_button desc="Tap to watch more reels" [hidden] x=0--365 y=2086-2278
+                                                    TextView #feed_preview_keep_watching_text text="Watch more reels" [hidden] x=0--449 y=2146-2218
+                                                LinearLayout #feed_preview_bottom_cta_container [hidden] x=0--492 y=2278-2478
+                                                  Button #feed_preview_watch_again_text text="Watch again" [hidden] x=0--492 y=2278-2478
+                                            ViewGroup [hidden] x=0-0 y=902-2912
+                                              ViewGroup [hidden] x=0--1128 y=2400-2640
+                                                ViewGroup desc="friend_one liked this reel" [hidden] x=0--1165 y=2465-2640
+                                                  ImageView [hidden] x=0--1165 y=2465-2640
+                                            ViewGroup [hidden] x=0--720 y=2182-2182
+                                            ViewGroup [hidden] x=0--215 y=3296-2912
+                                              FrameLayout [hidden] x=0--1272 y=3296-2912
+                                                ViewGroup #indicator_background_view [hidden] x=0--1277 y=3296-2912
+                                                  Button #indicator_icon_view desc="View tagged people" [hidden] x=0--1303 y=3322-2912
+                                            ViewGroup [hidden] x=0-0 y=3302-2912
+                                              ViewGroup [hidden] x=0-0 y=3302-2912
+                                                LinearLayout desc="Turn sound on" [hidden] x=0--56 y=3302-2912
+                                                  ImageView #slideout_iconview_icon [hidden] x=0--82 y=3328-2912
+                                      ViewGroup [hidden] x=0-0 y=902-1402
+                                      ViewGroup #row_feed_profile_header desc="swetaandankit posted a video 13 October" [hidden] x=0-0 y=902-1110
+                                        Button [hidden] x=0--1236 y=902-1110
+                                          ViewGroup desc="User avatars" [hidden] x=0--1236 y=902-1110
+                                        Button #row_feed_photo_profile_name text="swetaandankit and ankit_parimi" desc="swetaandankit and ankit_parimi" [hidden] x=0--176 y=902-1002
+                                        Button #secondary_label text=" Lipps Inc. · Funkytown" desc=" Lipps Inc. · Funkytown" [hidden] x=0--176 y=1002-1110
+                                        ImageView #media_option_button desc="More actions for this post" [hidden] x=0-0 y=910-1102
+                              LinearLayout #action_bar_LinearLayout [hidden] x=0-0 y=160-384
+                                FrameLayout #main_feed_action_bar [hidden] x=0-0 y=160-384
+                                  LinearLayout #action_bar_action_buttons [hidden] x=0-0 y=160-384
+                                    LinearLayout #action_bar_buttons_container_left [hidden] x=0--1248 y=160-384
+                                      ImageView #action_bar_left_button [hidden] x=0--1248 y=160-384
+                                    ViewAnimator #action_bar_title_view [hidden] x=0--192 y=190-354
+                                      LinearLayout #title_logo_chevron_container [hidden] x=0--488 y=190-354
+                                        ImageView #title_logo desc="Instagram Home Feed" [hidden] x=0--488 y=190-354
+                                    LinearLayout #action_bar_buttons_container_right [hidden] x=0-0 y=160-384
+                                      FrameLayout #notification [hidden] x=0-0 y=160-384
+                                        ViewGroup #wrapper [hidden] x=0--48 y=224-320
+                                          FrameLayout #container [hidden] x=0--48 y=224-320
+                                            ImageView #tab_icon [hidden] x=0--48 y=224-320
+                                          View #led_badge [hidden] x=0--48 y=224-265
+                        FrameLayout x=0-1440 y=160-2912
+                          FrameLayout #layout_container_swipeable x=0-1440 y=160-2912
+                            FrameLayout #root_clips_layout x=0-1440 y=160-2912
+                              LinearLayout #clips_linear_layout_container x=0-1440 y=160-2912
+                                FrameLayout #gesture_manager x=0-1440 y=160-2912
+                                  LinearLayout #clips_viewer_debug_container [hidden] x=0-0 y=160-160
+                                  FrameLayout #clips_viewer_container x=0-1440 y=160-2912
+                                    ViewGroup #clips_swipe_refresh_container x=0-1440 y=160-2912
+                                      ViewPager #clips_viewer_view_pager [scrollable] x=0-1440 y=160-2912
+                                        RecyclerView [scrollable] x=0-1440 y=160-2912
+                                          FrameLayout x=0-1440 y=160-2912
+                                            ViewGroup x=0-1440 y=160-2912
+                                              ViewGroup #clips_media_component desc="Reel by lord.farquaad.sol. Double tap to play or pause." x=0-1440 y=160-2912
+                                                ViewGroup #clips_single_media_component x=0-1440 y=160-2912
+                                                  ViewGroup x=0-1440 y=160-2912
+                                                    FrameLayout #clips_viewer_video_layout x=0-1440 y=160-2912
+                                                      FrameLayout #clips_video_container desc="Reel by lord.farquaad.sol. Double tap to play or pause." x=291-1149 y=160-1563
+                                                        SurfaceView x=291-1149 y=160-1563
+                                              ViewGroup x=0-1440 y=160-2912
+                                                ViewGroup #clips_touchable_background [hidden] x=0-1440 y=160-2912
+                                                ViewGroup #clips_item_overlay_component x=291-1149 y=160-1553
+                                                  FrameLayout x=291-1149 y=160-1553
+                                                    FrameLayout x=291-1149 y=160-1553
+                                                  ViewGroup [hidden] x=720-720 y=732-732
+                                                ViewGroup x=0-1440 y=160-2912
+                                                  ViewGroup #clips_media_info_component x=0-1232 y=2496-2873
+                                                    ViewGroup x=0-1232 y=2496-2817
+                                                      ViewGroup x=0-1232 y=2496-2817
+                                                        ViewGroup [hidden] x=64-1232 y=2496-2496
+                                                        ViewGroup [hidden] x=64-1232 y=2496-2496
+                                                        ViewGroup x=64-1232 y=2496-2817
+                                                          ViewGroup x=64-1232 y=2496-2706
+                                                            ViewGroup #clips_author_info_component x=64-721 y=2496-2706
+                                                              Button #clips_author_profile_pic desc="Profile picture of lord.farquaad.sol" x=64-208 y=2549-2693
+                                                              ViewGroup x=208-721 y=2552-2624
+                                                                Button #clips_author_username text="lord.farquaad.sol" desc="lord.farquaad.sol" x=208-721 y=2552-2624
+                                                              ViewGroup desc="AI content" x=208-492 y=2632-2690
+                                                                ImageView x=240-492 y=2632-2690
+                                                            ViewGroup x=721-1070 y=2536-2706
+                                                              TextView #inline_follow_button text="Follow" desc="Follow Lord Farquaad" x=745-1014 y=2568-2682
+                                                          ViewGroup #clips_caption_component x=64-1232 y=2706-2817
+                                                            ScrollView x=64-1232 y=2706-2817
+                                                              ViewGroup x=64-1232 y=2722-2817
+                                                                ViewGroup desc="Drippy necklace …" x=64-1232 y=2722-2817
+                                                  ViewGroup #clips_ufi_component x=1232-1440 y=1381-2873
+                                                    ViewGroup x=1232-1408 y=1381-2809
+                                                      ViewGroup x=1232-1408 y=1381-2809
+                                                        ImageView #like_button desc="Like" x=1232-1408 y=1381-1557
+                                                        Button #like_count text="Like number is 21524. View likes" desc="Like number is 21524. View likes" x=1232-1408 y=1557-1650
+                                                        Button #comment_button desc="Comment" x=1232-1408 y=1650-1826
+                                                        Button #comment_count text="Comment number is 249. View comments" desc="Comment number is 249. View comments" x=1232-1408 y=1826-1919
+                                                        Button desc="Repost" x=1232-1408 y=1919-2095
+                                                        Button #repost_count text="Reposted 1708 times" desc="Reposted 1708 times" x=1232-1408 y=2095-2188
+                                                        Button #direct_share_button desc="Share" x=1232-1408 y=2188-2364
+                                                        ImageView #save_button desc="Save" x=1232-1408 y=2396-2572
+                                                        Button #save_count text="Save number is 2621" desc="Save number is 2621" x=1232-1408 y=2572-2665
+                                                        Button #clips_ufi_more_button_component desc="More" x=1232-1408 y=2633-2809
+                                                  ViewGroup [hidden] x=0-1440 y=2873-2873
+                                                  ViewGroup x=0-1440 y=2873-2912
+                                                ViewGroup #watch_and_comment_audio_toggle_component x=1240-1440 y=1138-1338
+                                                  ViewGroup x=1288-1392 y=1186-1290
+                                                    ImageView x=1316-1364 y=1214-1262
+                                                ViewGroup #clips_bottom_legibility_gradient_component x=0-1440 y=2234-2912
+                                                  ViewGroup x=0-1440 y=2234-2912
+                                  RelativeLayout #clips_viewer_action_bar x=0-1440 y=160-384
+                                    LinearLayout #clips_action_bar_start_action_buttons x=0-192 y=160-384
+                                      ImageView desc="Create a reel" x=0-192 y=196-384
+                                    LinearLayout #clips_viewer_action_bar_title_container x=242-1197 y=160-384
+                                      HorizontalScrollView #action_bar_tab_layout x=314-1197 y=222-357
+                                        LinearLayout x=314-1197 y=222-357
+                                          LinearLayout desc="Reels" x=314-647 y=222-357
+                                            LinearLayout x=322-647 y=222-357
+                                              TextView #text1 text="Reels" x=322-567 y=222-357
+                                              ImageView #icon x=567-615 y=241-337
+                                          LinearLayout desc="Friends" x=647-1197 y=222-357
+                                            LinearLayout x=655-1197 y=222-357
+                                              TextView #text1 text="Friends" x=655-977 y=222-357
+                                              ImageView #icon x=977-1189 y=241-337
+                                    LinearLayout #clips_action_bar_end_action_buttons [hidden] x=1408-1408 y=160-384
+                                LinearLayout #clips_footer_mask_container [hidden] x=0-1440 y=2912-2912
+                        FrameLayout [hidden] x=1440-1440 y=160-2912
+                          FrameLayout #layout_container_swipeable [hidden] x=1440-1440 y=160-2912
+                        FrameLayout [hidden] x=2880-1440 y=160-2912
+                          FrameLayout #layout_container_swipeable [hidden] x=2880-1440 y=160-2912
+                        FrameLayout [hidden] x=4320-1440 y=160-2912
+                          FrameLayout #layout_container_swipeable [hidden] x=4320-1440 y=160-2912
+                    View #clips_expanded_touch_view x=0-1440 y=2792-2952
+                    View #tab_bar_shadow x=0-1440 y=2911-2912
+                    LinearLayout #tab_bar x=0-1440 y=2912-3104
+                      FrameLayout #feed_tab desc="Home" x=0-288 y=2912-3104
+                        ImageView #tab_icon x=96-192 y=2960-3056
+                      FrameLayout #clips_tab desc="Reels" x=288-576 y=2912-3104
+                        ImageView #tab_icon x=384-480 y=2960-3056
+                      FrameLayout #direct_tab desc="Message" x=576-864 y=2912-3104
+                        ImageView #tab_icon x=672-768 y=2960-3056
+                        TextView #notification text="12" x=748-788 y=3016-3056
+                      FrameLayout #search_tab desc="Search and explore" x=864-1152 y=2912-3104
+                        ImageView #tab_icon x=960-1056 y=2960-3056
+                      FrameLayout #profile_tab desc="Profile" x=1152-1440 y=2912-3104
+                        ViewGroup #wrapper x=1152-1440 y=2912-3104
+                          FrameLayout #container x=1236-1356 y=2948-3068
+                            ImageView #tab_avatar x=1236-1356 y=2948-3068
+                          View #led_badge x=1324-1364 y=3028-3068
+              FrameLayout #bottom_sheet_camera_container x=0-1440 y=160-3104
+            FrameLayout #modal_container x=0-1440 y=0-3104
+            FrameLayout #overlay_layout_container x=0-1440 y=0-3104
+          View [hidden] x=0-1440 y=0-160

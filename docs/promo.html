@@ -1,0 +1,682 @@
+<title>Shorts Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a scoreboard-style tally hero beside a live phone, then a row of phones showing each screen, then install steps. */
+:root {
+  --bg: #F3F2F7;
+  --surface: #FFFFFF;
+  --ink: #17151F;
+  --muted: #5F5D6B;
+  --line: #E2E0EA;
+  --accent: #5B4BD6;
+  --accent-soft: #E6E0FF;
+  --yt: #FF4E45;
+  --ig: #D62976;
+  --tally: #17151F;
+
+  /* The phone mockups always show the app's own dark theme, whatever the page theme. */
+  --app-bg: #0F0F14;
+  --app-card: #1A1922;
+  --app-card-2: #23222D;
+  --app-ink: #ECEAF2;
+  --app-muted: #A19FAE;
+  --app-primary: #B4A7FF;
+  --app-line: #2E2D38;
+
+  --display: "Big Shoulders Display", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B0A10; --surface: #16151D; --ink: #ECEAF2; --muted: #A19FAE; --line: #2A2934;
+    --accent: #B4A7FF; --accent-soft: #2E2560; --tally: #F3F1FA; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B0A10; --surface: #16151D; --ink: #ECEAF2; --muted: #A19FAE; --line: #2A2934;
+  --accent: #B4A7FF; --accent-soft: #2E2560; --tally: #F3F1FA; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent);
+}
+
+/* ---------- Top bar ---------- */
+.top { padding-block: 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; }
+.brand svg { flex: none; }
+.top .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 48px;
+  align-items: center;
+  padding-block: 24px 72px;
+}
+.tally-row { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: end; column-gap: 18px; row-gap: 14px; margin-bottom: 18px; }
+.tally {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(112px, 22vw, 224px);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--tally);
+  font-variant-numeric: tabular-nums;
+  /* Wide enough for any two-digit count, so changing digits never reflow the row. */
+  min-width: 1.05em;
+}
+#yt, #ig { display: inline-block; min-width: 2ch; text-align: right; }
+.tally-note { padding-bottom: 10px; display: grid; gap: 6px; }
+.tally-note .split { display: flex; gap: 14px; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.tally-note .split span { display: inline-flex; align-items: center; gap: 6px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
+.dot.yt { background: var(--yt); } .dot.ig { background: var(--ig); }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(36px, 5.2vw, 58px);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  max-width: 14ch;
+}
+.hero .lede { margin-top: 18px; font-size: 18px; color: var(--muted); max-width: 46ch; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px; border-radius: 14px;
+  font-weight: 700; font-size: 16px; text-decoration: none;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn.primary:hover { transform: translateY(-1px); }
+.btn.ghost { border: 1.5px solid var(--line); color: var(--ink); }
+.btn.ghost:hover { border-color: var(--muted); }
+.fine { margin-top: 14px; font-size: 13px; color: var(--muted); }
+.hero-phone { display: flex; justify-content: center; }
+
+/* ---------- Phone mockup ---------- */
+.phone {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 9 / 19;
+  border-radius: 42px;
+  padding: 10px;
+  background: #2A2833;
+  box-shadow: 0 30px 60px -20px rgba(23, 21, 31, 0.45), inset 0 0 0 1.5px #3B3946;
+  flex: none;
+}
+.screen {
+  height: 100%;
+  border-radius: 33px;
+  background: var(--app-bg);
+  color: var(--app-ink);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-size: 11px;
+  line-height: 1.4;
+  position: relative;
+}
+.status {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px 4px; font-size: 10px; font-weight: 600; color: var(--app-ink);
+  font-variant-numeric: tabular-nums;
+}
+.status .cam { width: 9px; height: 9px; border-radius: 50%; background: #000; box-shadow: 0 0 0 2px #1d1c24; }
+.app-body { flex: 1; overflow: hidden; padding: 6px 12px 0; display: flex; flex-direction: column; gap: 8px; }
+.app-h { font-size: 21px; font-weight: 700; line-height: 1.1; margin-top: 4px; }
+.app-sub { color: var(--app-muted); font-size: 10.5px; margin-bottom: 2px; }
+.card { background: var(--app-card); border-radius: 14px; padding: 11px 12px; }
+.card .label {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--app-muted); margin-bottom: 7px;
+}
+.big { display: flex; align-items: flex-end; gap: 6px; }
+.big b { font-size: 40px; line-height: 0.95; font-weight: 700; font-variant-numeric: tabular-nums; }
+.big span { color: var(--app-muted); font-size: 12px; padding-bottom: 4px; }
+.muted { color: var(--app-muted); }
+.bar { height: 5px; border-radius: 99px; background: var(--app-card-2); margin: 9px 0 5px; overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 99px; background: var(--app-primary); }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tile .name { display: flex; align-items: center; gap: 5px; font-weight: 600; font-size: 10px; }
+.tile b { display: block; font-size: 20px; margin-top: 4px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; height: 78px; align-items: end; }
+.week .col { display: flex; flex-direction: column; align-items: center; gap: 3px; height: 100%; justify-content: flex-end; }
+.week .stack { width: 72%; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
+.week .stack i { display: block; }
+.week .n { font-size: 7.5px; color: var(--app-muted); font-variant-numeric: tabular-nums; }
+.week .d { font-size: 8px; color: var(--app-muted); }
+.week .today .d { color: var(--app-ink); font-weight: 700; }
+.rank { display: flex; align-items: center; gap: 7px; padding: 3.5px 0; }
+.rank .i { width: 12px; color: var(--app-muted); font-weight: 600; }
+.rank .who { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank .c { font-weight: 700; font-variant-numeric: tabular-nums; }
+.nav {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  background: var(--app-card); padding: 8px 6px 14px; margin-top: auto;
+}
+.nav div { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 9px; color: var(--app-muted); }
+.nav .ico { width: 34px; height: 18px; border-radius: 99px; display: grid; place-items: center; }
+.nav .on { color: var(--app-ink); }
+.nav .on .ico { background: #2E2560; }
+.nav svg { width: 13px; height: 13px; fill: currentColor; }
+
+/* Feed screen */
+.day { display: flex; justify-content: space-between; align-items: baseline; margin: 4px 0 0; }
+.day b { font-size: 13px; }
+.day span { font-size: 9px; color: var(--app-muted); }
+.row { display: flex; gap: 9px; }
+.thumb {
+  width: 30px; height: 52px; border-radius: 6px; flex: none; position: relative; overflow: hidden;
+}
+.thumb::after {
+  content: ""; position: absolute; left: 4px; right: 4px; bottom: 5px; height: 3px; border-radius: 2px;
+  background: rgba(255,255,255,0.55); box-shadow: 0 -5px 0 rgba(255,255,255,0.35);
+}
+.row .txt { min-width: 0; flex: 1; }
+.row .who { font-weight: 600; font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .cap { font-size: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.row .m { font-size: 8.5px; color: var(--app-muted); margin-top: 1px; }
+
+/* Settings screen */
+.set { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.set .t { flex: 1; min-width: 0; }
+.set .t div:first-child { font-size: 11px; }
+.set .t div:last-child { font-size: 9px; color: var(--app-muted); }
+.sw { width: 30px; height: 17px; border-radius: 99px; background: var(--app-card-2); border: 1.5px solid #4A4857; position: relative; flex: none; }
+.sw::after { content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%; background: #8E8C9B; top: 2.5px; left: 3px; }
+.sw.on { background: var(--app-primary); border-color: var(--app-primary); }
+.sw.on::after { width: 11px; height: 11px; top: 1.5px; left: 15px; background: #1C1340; }
+.chips { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px; }
+.chip { font-size: 9px; padding: 3px 8px; border-radius: 7px; border: 1px solid var(--app-line); color: var(--app-muted); }
+.chip.on { background: #2E2560; border-color: #2E2560; color: var(--app-ink); }
+.danger { color: #FF6B63; font-size: 10.5px; margin-top: 6px; }
+
+/* Leaderboard screen */
+.lb-head { display: flex; gap: 5px; }
+.lb-head .chip { flex: 1; text-align: center; }
+.lb { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--app-line); }
+.lb:last-child { border-bottom: 0; }
+.lb .pos { font-family: var(--mono); width: 14px; color: var(--app-muted); font-size: 10px; }
+.av { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 9px; font-weight: 700; color: #fff; flex: none; }
+.lb .nm { flex: 1; min-width: 0; }
+.lb .nm div:first-child { font-weight: 600; font-size: 11px; }
+.lb .meter { height: 3px; border-radius: 99px; background: var(--app-card-2); margin-top: 3px; overflow: hidden; }
+.lb .meter i { display: block; height: 100%; background: var(--app-muted); border-radius: 99px; }
+.lb.me { background: #221F33; margin: 0 -8px; padding: 6px 8px; border-radius: 10px; border-bottom: 0; }
+.lb.me .meter i { background: var(--app-primary); }
+.lb .v { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
+.lb .v small { display: block; font-weight: 400; font-size: 8.5px; color: var(--app-muted); }
+
+/* ---------- Sections ---------- */
+section { padding-block: 72px; border-top: 1px solid var(--line); }
+.sec-head { display: grid; gap: 10px; margin-bottom: 40px; max-width: 640px; }
+.sec-head h2 {
+  font-family: var(--display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(34px, 4.6vw, 48px); line-height: 1;
+}
+.sec-head p { color: var(--muted); font-size: 17px; }
+.screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.shot { display: grid; gap: 18px; justify-items: center; }
+.shot .cap { max-width: 300px; width: 100%; display: grid; gap: 4px; }
+.shot .cap h3 { font-size: 17px; font-weight: 700; }
+.shot .cap p { color: var(--muted); font-size: 15px; }
+.sample { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 28px; text-align: center; }
+
+.next { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; align-items: center; }
+.next .phone-col { display: flex; justify-content: center; }
+.points { display: grid; gap: 22px; margin-top: 28px; }
+.point { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 14px; }
+.point svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
+.point h3 { font-size: 17px; font-weight: 700; }
+.point p { color: var(--muted); font-size: 15px; margin-top: 2px; max-width: 52ch; }
+
+.platforms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.plat { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: grid; gap: 14px; align-content: start; }
+.plat header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.plat h3 { font-size: 22px; font-weight: 700; }
+.state { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+.state.ok { background: color-mix(in srgb, #1F9D55 16%, transparent); color: #1F9D55; }
+.state.later { background: var(--accent-soft); color: var(--accent); }
+.plat ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+.plat li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; font-size: 15px; }
+.plat li .y { color: #1F9D55; font-weight: 700; }
+.plat li .n { color: var(--muted); font-weight: 700; }
+.plat .note { font-size: 14px; color: var(--muted); }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: step; }
+.steps li { counter-increment: step; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px; display: grid; gap: 8px; align-content: start; }
+.steps li::before {
+  content: counter(step);
+  font-family: var(--display); font-weight: 900; font-size: 44px; line-height: 0.9; color: var(--accent);
+}
+.steps h3 { font-size: 16px; font-weight: 700; }
+.steps p { font-size: 14px; color: var(--muted); }
+.install-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; align-items: center; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero, .next { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .screens { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .platforms, .steps { grid-template-columns: minmax(0, 1fr); }
+  .tally-row { grid-template-columns: minmax(0, 1fr); }
+  .tally-note { padding-bottom: 0; }
+  section { padding-block: 56px; }
+  .top .meta { display: none; }
+}
+.bump { animation: bump .35s ease-out; }
+@keyframes bump { 0% { transform: translateY(6px); opacity: .4; } 100% { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .bump { animation: none; } .btn { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 108 108" aria-hidden="true">
+        <rect width="108" height="108" rx="26" fill="#16131F"/>
+        <path fill="#D62976" d="M48,30h18a5,5 0,0 1,5 5v32a5,5 0,0 1,-5 5h-18a5,5 0,0 1,-5 -5v-32a5,5 0,0 1,5 -5z"/>
+        <path fill="#FF4E45" d="M40,36h20a5,5 0,0 1,5 5v32a5,5 0,0 1,-5 5h-20a5,5 0,0 1,-5 -5v-32a5,5 0,0 1,5 -5z"/>
+        <path fill="#FFFFFF" d="M45,48.5v13a1.5,1.5 0,0 0,2.3 1.3l10.5,-6.5a1.5,1.5 0,0 0,0 -2.6l-10.5,-6.5a1.5,1.5 0,0 0,-2.3 1.3z"/>
+      </svg>
+      Shorts Tracker
+    </div>
+    <div class="meta">v0.1 · Android 8+ · free</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="tally-row">
+        <div class="tally" id="tally" aria-label="87 videos">87</div>
+        <div class="tally-note">
+          <span class="eyebrow">Shorts &amp; Reels today</span>
+          <div class="split">
+            <span><i class="dot yt"></i><span id="yt">52</span> YouTube</span>
+            <span><i class="dot ig"></i><span id="ig">35</span> Instagram</span>
+          </div>
+        </div>
+      </div>
+      <h1>Know how many you actually scrolled.</h1>
+      <p class="lede">Shorts Tracker counts every YouTube Short and Instagram Reel you watch, how long you stayed, and whose videos keep pulling you back. It runs quietly in the background and keeps everything on your phone.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://drive.google.com/drive/folders/1COMBrPS5eE0LsN7VkbhwRd6IRlrA_qKE" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+          Get it for Android
+        </a>
+        <a class="btn ghost" href="#install">How to install</a>
+      </div>
+      <p class="fine">10 MB download from Google Drive. Not on the Play Store yet, so Android will ask you to allow the install.</p>
+    </div>
+
+    <div class="hero-phone">
+      <div class="phone" role="img" aria-label="The Today screen: 87 videos, 41 minutes watched, split by app, a seven-day chart and top creators.">
+        <div class="screen">
+          <div class="status"><span>9:41</span><span class="cam"></span><span>5G ▮</span></div>
+          <div class="app-body">
+            <div>
+              <div class="app-h">Today</div>
+              <div class="app-sub">Wednesday, 21 October</div>
+            </div>
+            <div class="card">
+              <div class="big"><b id="phoneTally">87</b><span>videos</span></div>
+              <div class="muted" style="font-size:11.5px">41 min watched</div>
+              <div class="bar"><i id="phoneBar" style="width:87%"></i></div>
+              <div class="muted" style="font-size:9px" id="phoneLeft">13 left of your 100 limit</div>
+            </div>
+            <div class="tiles">
+              <div class="card tile"><div class="name"><i class="dot yt"></i>YouTube</div><b>52</b><span class="muted" style="font-size:9px">24 min</span></div>
+              <div class="card tile"><div class="name"><i class="dot ig"></i>Instagram</div><b>35</b><span class="muted" style="font-size:9px">17 min</span></div>
+            </div>
+            <div class="card">
+              <div class="label">Last 7 days</div>
+              <div class="week" id="week"></div>
+            </div>
+            <div class="card">
+              <div class="label">Most watched today</div>
+              <div class="rank"><span class="i">1</span><i class="dot yt"></i><span class="who">@cookingwithsam</span><span class="c">9</span></div>
+              <div class="rank"><span class="i">2</span><i class="dot ig"></i><span class="who">travel.with.ana</span><span class="c">7</span></div>
+              <div class="rank"><span class="i">3</span><i class="dot yt"></i><span class="who">@techinsixty</span><span class="c">6</span></div>
+            </div>
+          </div>
+          <div class="nav">
+            <div class="on"><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Today</div>
+            <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>Feed</div>
+            <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></span>Settings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="screens">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What you'll see</span>
+      <h2>Three screens. No setup after day one.</h2>
+      <p>Turn it on once and keep scrolling like normal. Open the app whenever you want the receipts.</p>
+    </div>
+    <div class="screens">
+      <div class="shot">
+        <div class="phone" role="img" aria-label="The Feed screen: a list of videos watched today with thumbnails, creators, captions and watch time.">
+          <div class="screen">
+            <div class="status"><span>10:02</span><span class="cam"></span><span>5G ▮</span></div>
+            <div class="app-body" id="feed"></div>
+            <div class="nav">
+              <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Today</div>
+              <div class="on"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>Feed</div>
+              <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></span>Settings</div>
+            </div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3>Feed</h3>
+          <p>Every video, newest first: who posted it, the caption, and how long you watched. Turn on screenshots to get a thumbnail of each one.</p>
+        </div>
+      </div>
+
+      <div class="shot">
+        <div class="phone" role="img" aria-label="The Today screen on a heavy day: 112 videos, 12 over a daily limit of 100, and the top five creators.">
+          <div class="screen">
+            <div class="status"><span>10:02</span><span class="cam"></span><span>5G ▮</span></div>
+            <div class="app-body">
+              <div>
+                <div class="app-h">Today</div>
+                <div class="app-sub">Wednesday, 21 October</div>
+              </div>
+              <div class="card">
+                <div class="big"><b>112</b><span>videos</span></div>
+                <div class="muted" style="font-size:11.5px">58 min watched</div>
+                <div class="bar"><i style="width:100%;background:#FF4E45"></i></div>
+                <div style="font-size:9px;color:#FF6B63">12 over your limit of 100</div>
+              </div>
+              <div class="tiles">
+                <div class="card tile"><div class="name"><i class="dot yt"></i>YouTube</div><b>70</b><span class="muted" style="font-size:9px">33 min</span></div>
+                <div class="card tile"><div class="name"><i class="dot ig"></i>Instagram</div><b>42</b><span class="muted" style="font-size:9px">25 min</span></div>
+              </div>
+              <div class="card">
+                <div class="label">Most watched today</div>
+                <div class="rank"><span class="i">1</span><i class="dot ig"></i><span class="who">dailydoseofdogs</span><span class="c">14</span></div>
+                <div class="rank"><span class="i">2</span><i class="dot yt"></i><span class="who">@cookingwithsam</span><span class="c">11</span></div>
+                <div class="rank"><span class="i">3</span><i class="dot yt"></i><span class="who">@f1clipsdaily</span><span class="c">8</span></div>
+                <div class="rank"><span class="i">4</span><i class="dot ig"></i><span class="who">travel.with.ana</span><span class="c">6</span></div>
+                <div class="rank"><span class="i">5</span><i class="dot yt"></i><span class="who">@techinsixty</span><span class="c">5</span></div>
+              </div>
+            </div>
+            <div class="nav">
+              <div class="on"><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Today</div>
+              <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>Feed</div>
+              <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></span>Settings</div>
+            </div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3>Daily limit</h3>
+          <p>Pick a limit of 50, 100 or 200 videos a day. The bar turns red once you go over, so you can see it the next time you open the app.</p>
+        </div>
+      </div>
+
+      <div class="shot">
+        <div class="phone" role="img" aria-label="The Settings screen: accessibility access on, screenshots on every 5 videos kept 30 days, daily limit 100.">
+          <div class="screen">
+            <div class="status"><span>10:03</span><span class="cam"></span><span>5G ▮</span></div>
+            <div class="app-body">
+              <div class="app-h">Settings</div>
+              <div class="card">
+                <div class="label">Tracking</div>
+                <div class="set"><div class="t"><div>Accessibility access</div><div>On. Tap to manage.</div></div><span class="sw on"></span></div>
+              </div>
+              <div class="card">
+                <div class="label">Screenshots</div>
+                <div class="set"><div class="t"><div>Save screenshots</div><div>A small private image of each video.</div></div><span class="sw on"></span></div>
+                <div style="margin-top:7px">Take one every</div>
+                <div class="chips"><span class="chip">video</span><span class="chip">3 videos</span><span class="chip on">5 videos</span><span class="chip">10 videos</span></div>
+                <div style="margin-top:7px">Keep screenshots for</div>
+                <div class="chips"><span class="chip">7 days</span><span class="chip on">30 days</span><span class="chip">90 days</span></div>
+              </div>
+              <div class="card">
+                <div class="label">Daily limit</div>
+                <div class="chips"><span class="chip">Off</span><span class="chip">50</span><span class="chip on">100</span><span class="chip">200</span></div>
+              </div>
+              <div class="card">
+                <div class="label">Your data</div>
+                <div class="muted" style="font-size:10px">Everything is stored only on this phone.</div>
+                <div class="danger">Delete all history and screenshots</div>
+              </div>
+            </div>
+            <div class="nav">
+              <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Today</div>
+              <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg></span>Feed</div>
+              <div class="on"><span class="ico"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></span>Settings</div>
+            </div>
+          </div>
+        </div>
+        <div class="cap">
+          <h3>Settings</h3>
+          <p>Screenshots are off until you switch them on. Choose how often they're taken and how long they're kept. Delete everything with one tap.</p>
+        </div>
+      </div>
+    </div>
+    <p class="sample">Mockups use sample numbers and made-up creator names.</p>
+  </div>
+</section>
+
+<section id="friends">
+  <div class="wrap next">
+    <div class="phone-col">
+      <div class="phone" role="img" aria-label="A planned leaderboard screen ranking five friends by videos watched this week, fewest first.">
+        <div class="screen">
+          <div class="status"><span>21:15</span><span class="cam"></span><span>5G ▮</span></div>
+          <div class="app-body">
+            <div>
+              <div class="app-h">Friends</div>
+              <div class="app-sub">This week · fewest videos wins</div>
+            </div>
+            <div class="lb-head"><span class="chip on">Videos</span><span class="chip">Minutes</span></div>
+            <div class="card" id="board"></div>
+            <div class="card">
+              <div class="label">Invite code</div>
+              <div style="font-family:var(--mono);font-size:15px;letter-spacing:.12em">SCROLL-4K7Q</div>
+              <div class="muted" style="font-size:9px;margin-top:3px">Friends enter this to join your group.</div>
+            </div>
+          </div>
+          <div class="nav">
+            <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>Today</div>
+            <div class="on"><span class="ico"><svg viewBox="0 0 24 24"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13zm8 0h-1c1.2.9 2 2 2 3.5V19h6v-2.5c0-2.3-4.7-3.5-7-3.5z"/></svg></span>Friends</div>
+            <div><span class="ico"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.5 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.9a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></span>Settings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="pill">Coming next</span>
+        <h2>Compete with friends.</h2>
+        <p>Start a group, share the invite code, and see who scrolled the least this week.</p>
+      </div>
+      <div class="points">
+        <div class="point">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><h3>Only totals are shared</h3><p>Friends see your daily video count and minutes. Screenshots, creators and captions never leave your phone.</p></div>
+        </div>
+        <div class="point">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <div><h3>Fewest wins</h3><p>The board ranks by fewest videos, so the winner is whoever scrolled least. Switch to minutes if you'd rather compare time.</p></div>
+        </div>
+        <div class="point">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+          <div><h3>iPhone friends can join on minutes</h3><p>An iPhone version would share minutes in YouTube and Instagram. See below for why it can't count videos.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="iphone">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Android and iPhone</span>
+      <h2>What works where</h2>
+      <p>Android lets an app see what's on screen in other apps, which is how Shorts Tracker counts videos. iPhone doesn't allow that, so an iPhone version could only measure time.</p>
+    </div>
+    <div class="platforms">
+      <div class="plat">
+        <header><h3>Android</h3><span class="state ok">Available now</span></header>
+        <ul>
+          <li><span class="y">✓</span><span>Counts each Short and Reel</span></li>
+          <li><span class="y">✓</span><span>Time watched per video and per day</span></li>
+          <li><span class="y">✓</span><span>Creator names and captions</span></li>
+          <li><span class="y">✓</span><span>Optional screenshots</span></li>
+          <li><span class="y">✓</span><span>Friends leaderboard (coming next)</span></li>
+        </ul>
+        <p class="note">Android 8 or newer. Screenshots need Android 11 or newer.</p>
+      </div>
+      <div class="plat">
+        <header><h3>iPhone</h3><span class="state later">Planned</span></header>
+        <ul>
+          <li><span class="y">✓</span><span>Minutes in YouTube and Instagram, through Screen Time</span></li>
+          <li><span class="y">✓</span><span>Friends leaderboard on minutes</span></li>
+          <li><span class="n">✕</span><span>Counting videos. Apple doesn't let apps see inside other apps.</span></li>
+          <li><span class="n">✕</span><span>Telling Shorts apart from the rest of YouTube</span></li>
+          <li><span class="n">✕</span><span>Creators, captions or screenshots</span></li>
+        </ul>
+        <p class="note">This needs a paid Apple developer account and Apple's approval to use Screen Time data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Android · about 3 minutes</span>
+      <h2>Install it</h2>
+      <p>The download folder also has a step-by-step text guide, with fixes for Xiaomi, Samsung, OnePlus and other phones.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Download the APK</h3><p>Open the Drive folder on your phone and tap ShortsTracker-0.1.apk.</p></li>
+      <li><h3>Allow the install</h3><p>Android asks before installing apps from outside the Play Store. Tap Settings, allow it, then Install.</p></li>
+      <li><h3>Turn on tracking</h3><p>Open the app, tap Accessibility, find Shorts Tracker and switch it on. If the switch is greyed out, go to App info, tap ⋮ and choose "Allow restricted settings".</p></li>
+      <li><h3>Keep scrolling</h3><p>Watch Shorts or Reels as usual. Set the app's battery usage to Unrestricted so your phone doesn't close it.</p></li>
+    </ol>
+    <div class="install-cta">
+      <a class="btn primary" href="https://drive.google.com/drive/folders/1COMBrPS5eE0LsN7VkbhwRd6IRlrA_qKE" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+        Open the download folder
+      </a>
+      <a class="btn ghost" href="https://drive.google.com/file/d/17HgToglFsdPvQaTtA8qKSZMO-gljhBmV/view" target="_blank" rel="noopener">Read the full guide</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>Shorts Tracker 0.1 · made by Srikar for friends</span>
+    <span>Early test version: counts can be off while detection is tuned.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var YT = '#FF4E45', IG = '#D62976';
+
+  // Seven-day chart in the hero phone (sample numbers).
+  var week = [['Thu', 40, 24], ['Fri', 70, 42], ['Sat', 80, 63], ['Sun', 66, 62], ['Mon', 45, 26], ['Tue', 60, 35], ['Wed', 52, 35]];
+  var max = Math.max.apply(null, week.map(function (d) { return d[1] + d[2]; }));
+  document.getElementById('week').innerHTML = week.map(function (d, i) {
+    var total = d[1] + d[2];
+    return '<div class="col' + (i === week.length - 1 ? ' today' : '') + '">' +
+      '<span class="n">' + total + '</span>' +
+      '<div class="stack" style="height:' + (total / max * 70) + '%">' +
+        '<i style="flex:' + d[2] + ';background:' + IG + '"></i>' +
+        '<i style="flex:' + d[1] + ';background:' + YT + '"></i>' +
+      '</div><span class="d">' + d[0] + '</span></div>';
+  }).join('');
+
+  // Feed rows (sample creators; gradients stand in for screenshots).
+  var feed = [
+    ['yt', '@cookingwithsam', 'One-pan garlic butter pasta in 10 minutes', '10:01 PM', '0:41', ['#F2A65A', '#7A2E1F']],
+    ['ig', 'travel.with.ana', 'The hidden beach nobody talks about', '9:58 PM', '0:23', ['#4FB3BF', '#1B3A5C']],
+    ['yt', '@techinsixty', 'This phone charges in 9 minutes?!', '9:57 PM', '0:12', ['#6A6FF2', '#14143A']],
+    ['ig', 'dailydoseofdogs', 'He heard the word "walk"', '9:57 PM', '0:09', ['#E8C07D', '#5C3B1E']],
+    ['yt', '@f1clipsdaily', 'Last-lap overtake from P4', '9:55 PM', '0:58', ['#E04848', '#1E1E26']],
+    ['ig', 'homegym.hari', '3 moves for a stronger back', '9:54 PM', '0:31', ['#8BC48A', '#1F3B2A']]
+  ];
+  document.getElementById('feed').innerHTML =
+    '<div class="day"><b>Today</b><span>87 videos</span></div>' +
+    feed.map(function (f) {
+      return '<div class="row"><div class="thumb" style="background:linear-gradient(160deg,' + f[5][0] + ',' + f[5][1] + ')"></div>' +
+        '<div class="txt"><div class="who">' + f[1] + '</div><div class="cap">' + f[2] + '</div>' +
+        '<div class="m">' + (f[0] === 'yt' ? 'YouTube' : 'Instagram') + '  ·  ' + f[3] + '  ·  ' + f[4] + '</div></div></div>';
+    }).join('');
+
+  // Planned leaderboard (sample friends).
+  var board = [['Meera', 212, 98, '#3F8F6B'], ['You', 486, 251, '#5B4BD6'], ['Kabir', 590, 310, '#C26A2E'], ['Riya', 734, 402, '#B0407A'], ['Dev', 901, 488, '#3C6FB5']];
+  var top = board[board.length - 1][1];
+  document.getElementById('board').innerHTML = board.map(function (b, i) {
+    return '<div class="lb' + (b[0] === 'You' ? ' me' : '') + '"><span class="pos">' + (i + 1) + '</span>' +
+      '<span class="av" style="background:' + b[3] + '">' + b[0][0] + '</span>' +
+      '<div class="nm"><div>' + b[0] + '</div><div class="meter"><i style="width:' + (b[1] / top * 100) + '%"></i></div></div>' +
+      '<div class="v">' + b[1] + '<small>' + b[2] + ' min</small></div></div>';
+  }).join('');
+
+  // The hero tally keeps counting, like the app does while you scroll.
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  var n = 87, yt = 52, ig = 35, limit = 100;
+  var tally = document.getElementById('tally');
+  setInterval(function () {
+    if (n >= 99) return;
+    n++;
+    if (Math.random() < 0.6) yt++; else ig++;
+    tally.textContent = n;
+    tally.setAttribute('aria-label', n + ' videos');
+    tally.classList.remove('bump'); void tally.offsetWidth; tally.classList.add('bump');
+    document.getElementById('yt').textContent = yt;
+    document.getElementById('ig').textContent = ig;
+    document.getElementById('phoneTally').textContent = n;
+    document.getElementById('phoneBar').style.width = (n / limit * 100) + '%';
+    document.getElementById('phoneLeft').textContent = (limit - n) + ' left of your ' + limit + ' limit';
+  }, 2600);
+})();
+</script>

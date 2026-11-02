@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- packageNames: Android only wakes the tracker for these apps, which keeps battery use low.
+     The first three are the watched apps. The rest are payment/bank apps (tracker/PaymentApps.kt): seeing one
+     makes the tracker switch itself off so the payment isn't blocked. Keep the two lists in sync.
+     Leaving a watched app is noticed by a light check in the service instead of by watching every app. -->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged|typeViewScrolled"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagReportViewIds|flagIncludeNotImportantViews"
+    android:canRetrieveWindowContent="true"
+    android:canTakeScreenshot="true"
+    android:description="@string/service_description"
+    android:notificationTimeout="500"
+    android:packageNames="com.google.android.youtube,com.instagram.android,com.snapchat.android,com.google.android.apps.nbu.paisa.user,com.phonepe.app,net.one97.paytm,in.org.npci.upiapp,com.dreamplug.androidapp,com.mobikwik_new,com.sbi.lotusintouch,com.csam.icici.bank.imobile,com.snapwork.hdfc,com.axis.mobile,com.msf.kbank.mobile,com.bankofbaroda.mconnect"
+    tools:targetApi="30" />

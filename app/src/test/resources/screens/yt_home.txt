@@ -1,0 +1,170 @@
+ScreenInfo(kind=SHORT, creator=null, caption=Subscriptions)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+            FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+              ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-3168
+                FrameLayout #global_slim_status_bar_container x=0-1440 y=0-3168
+                FrameLayout #accessibility_layer_container x=0-1440 y=0-3168
+                  FrameLayout #fullscreen_mode_container [hidden] x=0-1440 y=0-0
+                  ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-3168
+                    ViewGroup #next_gen_watch_layout_no_player_fragment_container x=0-1440 y=0-3168
+                      FrameLayout #miniplayer_chevron_container desc="Unstash miniplayer" [hidden] x=0-0 y=0-0
+                        ImageView #miniplayer_right_chevron [hidden] x=0-0 y=0-0
+                        ImageView #miniplayer_left_chevron [hidden] x=0-0 y=0-0
+                      ViewGroup #watch_while_time_bar_view x=640-1408 y=2448-2948
+                      ViewGroup #floaty_bar_time_bar_view x=640-1408 y=2448-2948
+                        SeekBar #floaty_bar_time_bar_view desc="0 minutes 0 seconds of 11 minutes 28 seconds" x=640-1408 y=2804-2948
+                      FrameLayout #floaty_bar_controls_view desc="Minimized player" x=640-1408 y=2448-2880
+                      FrameLayout #watch_player desc="Video player" x=640-1408 y=2448-2880
+                        ViewGroup #player_overlays x=640-1408 y=2448-2880
+                          FrameLayout #player_overlays_custom_views_container x=640-1408 y=2448-2880
+                          FrameLayout x=640-1408 y=2448-2880
+                          View [hidden] x=640-1408 y=2448-2880
+                          FrameLayout x=640-1408 y=2448-2880
+                            FrameLayout x=640-1408 y=2448-2880
+                              ViewGroup x=640-1408 y=2448-2880
+                          FrameLayout x=640-1408 y=2448-2880
+                            FrameLayout x=640-1408 y=2448-2880
+                              ViewGroup [hidden] x=640-1408 y=2448-2880
+                          FrameLayout x=640-1408 y=2448-2880
+                            FrameLayout x=640-1408 y=2448-2880
+                              ViewGroup [hidden] x=640-1408 y=2448-2880
+                          FrameLayout x=640-1408 y=2448-2880
+                            FrameLayout x=640-1408 y=2448-2880
+                              ViewGroup x=640-1408 y=2448-2880
+                          FrameLayout x=640-1408 y=2448-2880
+                            FrameLayout x=640-1408 y=2448-2880
+                              ViewGroup x=640-1408 y=2448-2880
+                          ViewGroup desc="Minimized player" x=640-1408 y=2448-2880
+                            ImageView #modern_miniplayer_overlay_action_button desc="Play video" x=640-832 y=2448-2640
+                            ImageView #modern_miniplayer_close desc="Close minimized player" x=1216-1408 y=2448-2640
+                            LinearLayout #modern_miniplayer_subtitle_bar x=672-704 y=2775-2848
+                              TextView #modern_miniplayer_subtitle_text x=672-704 y=2775-2848
+                          FrameLayout x=640-1408 y=2448-2880
+                        FrameLayout #player_fragment_container x=640-1408 y=2448-2880
+                          ViewGroup #player_view x=640-1408 y=2448-2880
+                            ViewGroup x=640-1408 y=2448-2880
+                              ViewGroup x=640-1408 y=2448-2880
+                                View x=736-1312 y=2448-2880
+                                SurfaceView x=736-1312 y=2448-2880
+                        View x=640-641 y=2448-2449
+                    ViewGroup #watch_while_layout_coordinator_layout x=0-1440 y=0-3168
+                      FrameLayout #fab_container x=0-1440 y=0-3168
+                      FrameLayout #pane_fragment_container x=0-1440 y=0-3168
+                        ScrollView #browse_fragment_layout_coordinator_layout [scrollable] x=0-1440 y=0-3168
+                          FrameLayout #pane_fragment_background_container x=0-1440 y=0-3168
+                            View #pane_fragment_background_alpha_overlay [hidden] x=0-1440 y=0-3168
+                          LinearLayout #appbar_layout x=0-1440 y=0-544
+                            FrameLayout #toolbar_container x=0-1440 y=0-352
+                              FrameLayout #collapsing_header_container [hidden] x=0-1440 y=160-160
+                              ViewGroup #toolbar x=0-1440 y=160-352
+                                FrameLayout x=0-1056 y=160-352
+                                  ImageView #youtube_logo desc="YouTube Premium" x=0-516 y=160-352
+                                LinearLayoutCompat x=1056-1440 y=160-352
+                                  FrameLayout #menu_item_0 x=1056-1248 y=160-352
+                                    ViewGroup x=1056-1248 y=160-352
+                                      ImageView #menu_item_view desc="Notifications" x=1056-1248 y=160-352
+                                  FrameLayout #menu_item_1 x=1248-1440 y=160-352
+                                    ViewGroup x=1248-1440 y=160-352
+                                      ImageView #menu_item_view desc="Search" x=1248-1440 y=160-352
+                            LinearLayout #filter_bar x=0-1440 y=352-544
+                              RecyclerView desc="filters" [scrollable] x=0-1440 y=352-544
+                                Button desc="Explore Menu" x=48-216 y=384-512
+                                  ImageView x=84-180 y=400-496
+                                View [hidden] x=248-248 y=384-512
+                                LinearLayout x=280-436 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="All" x=280-436 y=384-512
+                                LinearLayout x=468-760 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="Gaming" x=468-760 y=384-512
+                                LinearLayout x=792-1123 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="Podcasts" x=792-1123 y=384-512
+                                LinearLayout x=1155-1400 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="Music" x=1155-1400 y=384-512
+                                LinearLayout x=1432-1440 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="Mixes" x=1432-1440 y=384-512
+                                LinearLayout [hidden] x=1706-1440 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="AI" [hidden] x=1706-1440 y=384-512
+                                LinearLayout [hidden] x=1883-1440 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="Display devices" [hidden] x=1883-1440 y=384-512
+                                LinearLayout [hidden] x=2397-1440 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="iPhones" [hidden] x=2397-1440 y=384-512
+                                LinearLayout [hidden] x=2727-1440 y=384-512
+                                  TextView #chip_cloud_chip_modern_text text="Live" [hidden] x=2727-1440 y=384-512
+                          FrameLayout #pane_fragment_contents x=0-1440 y=544-3168
+                            FrameLayout #loading_layout x=0-1440 y=544-3168
+                              ViewGroup x=0-1440 y=544-3168
+                                RecyclerView #results [scrollable] x=0-1440 y=544-3168
+                                  ViewGroup x=0-1440 y=544-1738
+                                    Button desc="I hacked my old TV to make it feel brand new. - 8 minutes, 10 seconds - Go to channel Oliur / UltraLinx - Oliur / UltraLinx, Verified - 68 thousand views - 17 hours ago - play video" x=0-1440 y=544-1642
+                                      ViewGroup x=0-1440 y=544-1354
+                                        ImageView x=0-1440 y=544-1354
+                                        ViewGroup x=0-1440 y=544-1354
+                                          ImageView x=0-1440 y=544-1354
+                                          ViewGroup desc="8 minutes, 10 seconds" x=1270-1408 y=1242-1322
+                                            ViewGroup text="8:10" desc="8:10" x=1294-1384 y=1253-1310
+                                      ViewGroup x=0-1440 y=1354-1642
+                                        ViewGroup x=0-1440 y=1354-1642
+                                          Button desc="Go to channel Oliur / UltraLinx" x=48-192 y=1402-1546
+                                          ViewGroup x=224-1216 y=1402-1642
+                                            ViewGroup x=224-1216 y=1402-1642
+                                              ViewGroup x=224-1216 y=1402-1642
+                                                ViewGroup x=224-1216 y=1402-1562
+                                                  ViewGroup text="I hacked my old TV to make it feel brand new." desc="I hacked my old TV to make it feel brand new." x=224-1216 y=1402-1562
+                                                ViewGroup x=224-1216 y=1562-1642
+                                                  ViewGroup text="Oliur / UltraLinx, 68 thousand views, 17 hours ago" desc="Oliur / UltraLinx, 68 thousand views, 17 hours ago" x=224-1216 y=1578-1642
+                                          Button desc="Action menu for I hacked my old TV to make it feel brand new." x=1248-1344 y=1402-1498
+                                  xzr x=0-1440 y=1738-1770
+                                  xzr x=0-1440 y=1770-1978
+                                    View desc="Shorts" x=256-466 y=1830-1918
+                                    Button desc="Action menu" x=1280-1376 y=1826-1922
+                                  ViewGroup x=0-1440 y=1978-2965
+                                    FrameLayout x=0-720 y=1978-2965
+                                      xzr x=0-720 y=1978-2965
+                                        Button desc="GFYS | @DIEM - play Short" x=48-706 y=1978-2965
+                                        Button desc="More actions" x=618-690 y=2010-2082
+                                    FrameLayout x=720-1440 y=1978-2965
+                                      xzr x=720-1440 y=1978-2965
+                                        Button desc="Did I steal my game? - play Short" x=734-1392 y=1978-2965
+                                        View desc="New" [hidden] x=766-766 y=2010-2086
+                                        Button desc="More actions" x=1304-1376 y=2010-2082
+                                  xzr x=0-1440 y=2965-3057
+                                  ViewGroup x=0-1440 y=3089-3168
+                                    Button desc="Harry Potter reacts to Malfoid - 5 minutes, 20 seconds - Go to channel Dr Phoxotic - Dr Phoxotic, Verified - 217 thousand views - 4 days ago - play video" x=0-1440 y=3089-3168
+                                      ViewGroup x=0-1440 y=3089-3168
+                                        ImageView x=0-1440 y=3089-3168
+                                        ViewGroup x=0-1440 y=3089-3168
+                                          ImageView x=0-1440 y=3089-3168
+                      FrameLayout #root_pill_container [hidden] x=0-1440 y=2816-2816
+                      FrameLayout #pane_fragment_footer_container [hidden] x=0-1440 y=3168-3168
+                    View #scrim_view [hidden] x=0-1440 y=160-3168
+                  FrameLayout #bottom_bar_container x=0-1440 y=2912-3168
+                    HorizontalScrollView #pivot_bar x=0-1440 y=2912-3168
+                      LinearLayout x=0-1440 y=2912-3104
+                        Button desc="Home" x=0-288 y=2912-3104
+                          FrameLayout #thumbnail_layout x=96-192 y=2933-3029
+                            ImageView #image x=96-192 y=2933-3029
+                          TextView #text text="Home" x=87-202 y=3037-3084
+                        Button desc="Shorts" x=288-576 y=2912-3104
+                          FrameLayout #thumbnail_layout x=384-480 y=2933-3029
+                            ImageView #image x=384-480 y=2933-3029
+                          TextView #text text="Shorts" x=370-494 y=3037-3084
+                        Button desc="Create" x=576-864 y=2912-3104
+                          ImageView #image x=648-792 y=2938-3082
+                        Button desc="Subscriptions: New content is available" x=864-1152 y=2912-3104
+                          FrameLayout #thumbnail_layout x=960-1056 y=2933-3029
+                            ImageView #image x=960-1056 y=2933-3029
+                          View #new_content_dot desc="New content available" x=1016-1064 y=2925-2973
+                          TextView #text text="Subscriptions" x=882-1134 y=3037-3084
+                        Button desc="You" x=1152-1440 y=2912-3104
+                          FrameLayout #thumbnail_layout x=1248-1344 y=2933-3029
+                            ImageView #pivot_bar_thumbnail x=1248-1344 y=2933-3029
+                          TextView #text text="You" x=1259-1333 y=3037-3084
+              FrameLayout [hidden] x=0-1440 y=0-160
+                View #global_status_bar_view [hidden] x=0-1440 y=0-160
+              View [hidden] x=0-4 y=0-4
+          ViewGroup #reel_time_bar x=0-1440 y=0-3168

@@ -1,0 +1,117 @@
+ScreenInfo(kind=SHORT, creator=null, caption=null)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+            FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+              ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-2060
+                FrameLayout #global_slim_status_bar_container x=0-1440 y=0-2060
+                FrameLayout #accessibility_layer_container x=0-1440 y=0-2060
+                  FrameLayout #fullscreen_mode_container [hidden] x=0-1440 y=0-0
+                  ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-2060
+                    ViewGroup #next_gen_watch_layout_no_player_fragment_container x=0-1440 y=0-2060
+                      FrameLayout #miniplayer_chevron_container desc="Unstash miniplayer" [hidden] x=0-0 y=0-0
+                        ImageView #miniplayer_right_chevron [hidden] x=0-0 y=0-0
+                        ImageView #miniplayer_left_chevron [hidden] x=0-0 y=0-0
+                      ViewGroup #watch_while_time_bar_view x=640-1408 y=1532-2032
+                      ViewGroup #floaty_bar_time_bar_view x=640-1408 y=1532-2032
+                        SeekBar #floaty_bar_time_bar_view desc="0 minutes 0 seconds of 11 minutes 28 seconds" x=640-1408 y=1888-2032
+                      FrameLayout #floaty_bar_controls_view desc="Minimized player" x=640-1408 y=1532-1964
+                      FrameLayout #watch_player desc="Video player" x=640-1408 y=1532-1964
+                        ViewGroup #player_overlays x=640-1408 y=1532-1964
+                          FrameLayout #player_overlays_custom_views_container x=640-1408 y=1532-1964
+                          FrameLayout x=640-1408 y=1532-1964
+                          View [hidden] x=640-1408 y=1532-1964
+                          FrameLayout x=640-1408 y=1532-1964
+                            FrameLayout x=640-1408 y=1532-1964
+                              ViewGroup x=640-1408 y=1532-1964
+                          FrameLayout x=640-1408 y=1532-1964
+                            FrameLayout x=640-1408 y=1532-1964
+                              ViewGroup [hidden] x=640-1408 y=1532-1964
+                          FrameLayout x=640-1408 y=1532-1964
+                            FrameLayout x=640-1408 y=1532-1964
+                              ViewGroup [hidden] x=640-1408 y=1532-1964
+                          FrameLayout x=640-1408 y=1532-1964
+                            FrameLayout x=640-1408 y=1532-1964
+                              ViewGroup x=640-1408 y=1532-1964
+                          FrameLayout x=640-1408 y=1532-1964
+                            FrameLayout x=640-1408 y=1532-1964
+                              ViewGroup x=640-1408 y=1532-1964
+                          ViewGroup desc="Minimized player" x=640-1408 y=1532-1964
+                            ImageView #modern_miniplayer_overlay_action_button desc="Play video" x=640-832 y=1532-1724
+                            ImageView #modern_miniplayer_close desc="Close minimized player" x=1216-1408 y=1532-1724
+                            LinearLayout #modern_miniplayer_subtitle_bar x=672-704 y=1859-1932
+                              TextView #modern_miniplayer_subtitle_text x=672-704 y=1859-1932
+                          FrameLayout x=640-1408 y=1532-1964
+                        FrameLayout #player_fragment_container x=640-1408 y=1532-1964
+                          ViewGroup #player_view x=640-1408 y=1532-1964
+                            ViewGroup x=640-1408 y=1532-1964
+                              ViewGroup x=640-1408 y=1532-1964
+                                View x=736-1312 y=1532-1964
+                                SurfaceView x=736-1312 y=1532-1964
+                        View x=640-641 y=1532-1533
+                    ViewGroup #watch_while_layout_coordinator_layout x=0-1440 y=0-2060
+                      FrameLayout #fab_container x=0-1440 y=0-2060
+                        ImageView #fab desc="Voice search" x=1184-1408 y=1580-1804
+                      FrameLayout #pane_fragment_container x=0-1440 y=0-2060
+                        ScrollView #browse_fragment_layout_coordinator_layout x=0-1440 y=160-1996
+                          LinearLayout #appbar_layout x=0-1440 y=160-352
+                            FrameLayout #toolbar_container x=0-1440 y=160-352
+                              FrameLayout #collapsing_header_container [hidden] x=0-1440 y=160-160
+                              ViewGroup #toolbar x=0-1440 y=160-352
+                                ImageButton desc="Navigate up" x=0-224 y=160-352
+                                RelativeLayout x=224-1440 y=160-352
+                                  LinearLayout #search_box x=224-1440 y=160-352
+                                    EditText #search_edit_text text="cat" x=224-1248 y=192-320
+                                    ImageView #search_clear desc="Clear" x=1248-1440 y=160-352
+                                LinearLayoutCompat [hidden] x=1440-1440 y=160-352
+                          FrameLayout #pane_fragment_contents x=0-1440 y=352-1996
+                            FrameLayout #search_layout x=0-1440 y=352-1996
+                              RecyclerView #results_recycler_view [scrollable] x=0-1440 y=352-1996
+                                ViewGroup #linearLayout x=0-1440 y=352-544
+                                  ImageView #search_type_icon x=16-208 y=400-496
+                                  TextView #text text="cat chirping" x=208-1248 y=405-491
+                                  ImageView #edit_suggestion desc="Edit suggestion cat chirping" x=1248-1440 y=352-544
+                                ViewGroup #linearLayout x=0-1440 y=544-736
+                                  ImageView #search_type_icon x=16-208 y=592-688
+                                  TextView #text text="cat feeders review india" x=208-1248 y=597-683
+                                  ImageView #edit_suggestion desc="Edit suggestion cat feeders review india" x=1248-1440 y=544-736
+                                ViewGroup #linearLayout x=0-1440 y=736-928
+                                  ImageView #search_type_icon x=16-208 y=784-880
+                                  TextView #text text="cat's eating eggs" x=208-1248 y=789-875
+                                  ImageView #edit_suggestion desc="Edit suggestion cat's eating eggs" x=1248-1440 y=736-928
+                                ViewGroup #linearLayout x=0-1440 y=928-1120
+                                  ImageView #search_type_icon x=16-208 y=976-1072
+                                  TextView #text text="cat reviews" x=208-1248 y=981-1067
+                                  ImageView #edit_suggestion desc="Edit suggestion cat reviews" x=1248-1440 y=928-1120
+                                ViewGroup #linearLayout x=0-1440 y=1120-1312
+                                  ImageView #search_type_icon x=16-208 y=1168-1264
+                                  TextView #text text="cat cafe near me" x=208-1248 y=1173-1259
+                                  ImageView #edit_suggestion desc="Edit suggestion cat cafe near me" x=1248-1440 y=1120-1312
+                                ViewGroup #linearLayout x=0-1440 y=1312-1504
+                                  ImageView #search_type_icon x=16-208 y=1360-1456
+                                  TextView #text text="cat videos" x=208-1248 y=1365-1451
+                                  ImageView #edit_suggestion desc="Edit suggestion cat videos" x=1248-1440 y=1312-1504
+                                ViewGroup #linearLayout x=0-1440 y=1504-1696
+                                  ImageView #search_type_icon x=16-208 y=1552-1648
+                                  TextView #text text="cat sound" x=208-1248 y=1557-1643
+                                  ImageView #edit_suggestion desc="Edit suggestion cat sound" x=1248-1440 y=1504-1696
+                                ViewGroup #linearLayout x=0-1440 y=1696-1888
+                                  ImageView #search_type_icon x=16-208 y=1744-1840
+                                  TextView #text text="cat" x=208-1248 y=1749-1835
+                                  ImageView #edit_suggestion desc="Edit suggestion cat" x=1248-1440 y=1696-1888
+                                ViewGroup #linearLayout x=0-1440 y=1888-1996
+                                  ImageView #search_type_icon x=16-208 y=1936-1996
+                                  TextView #text text="cat shorts" x=208-1248 y=1941-1996
+                                  ImageView #edit_suggestion desc="Edit suggestion cat shorts" x=1248-1440 y=1888-1996
+                      FrameLayout #root_pill_container [hidden] x=0-1440 y=1708-1708
+                      FrameLayout #pane_fragment_footer_container [hidden] x=0-1440 y=2060-2060
+                    View #scrim_view [hidden] x=0-1440 y=160-2060
+                  FrameLayout #bottom_bar_container [hidden] x=0-1440 y=2060-2060
+              FrameLayout [hidden] x=0-1440 y=0-160
+                View #global_status_bar_view [hidden] x=0-1440 y=0-160
+              View [hidden] x=0-4 y=0-4
+          ViewGroup #reel_time_bar x=0-1440 y=0-3168

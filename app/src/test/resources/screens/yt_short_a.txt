@@ -1,0 +1,123 @@
+ScreenInfo(kind=SHORT, creator=@ArtemYashin, caption=Did I steal my game?)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+            FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+              ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-3168
+                FrameLayout #global_slim_status_bar_container x=0-1440 y=0-3168
+                FrameLayout #accessibility_layer_container x=0-1440 y=0-3168
+                  FrameLayout #fullscreen_mode_container [hidden] x=0-1440 y=0-0
+                  ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-3168
+                    ViewGroup #watch_while_layout_coordinator_layout x=0-1440 y=0-3168
+                      FrameLayout #fab_container x=0-1440 y=0-3168
+                      FrameLayout #pane_fragment_container x=0-1440 y=0-3168
+                        ScrollView #browse_fragment_layout_coordinator_layout x=0-1440 y=0-2912
+                          FrameLayout #pane_fragment_contents x=0-1440 y=0-2912
+                            FrameLayout x=0-1440 y=0-2912
+                              FrameLayout #fragment_container_view x=0-1440 y=0-2912
+                                LinearLayout x=0-1440 y=0-2912
+                                  FrameLayout #reel_watch_fragment_root x=0-1440 y=160-2912
+                                    FrameLayout #reel_player_underlay x=0-1440 y=160-2912
+                                    FrameLayout #nerd_stats_container x=0-1440 y=160-2912
+                                      RelativeLayout x=0-1440 y=160-2912
+                                    ViewGroup #reel_watch_refresher x=0-1440 y=160-2912
+                                      RecyclerView #reel_recycler x=0-1440 y=160-2912
+                                        FrameLayout #reel_player_page_container x=0-1440 y=160-2912
+                                          FrameLayout #reel_player_page_content x=0-1440 y=160-2912
+                                            FrameLayout x=0-1440 y=160-2912
+                                              FrameLayout #reel_player_overlay_root x=0-1440 y=160-2912
+                                                FrameLayout #reel_player_overlay_container x=0-1440 y=160-2912
+                                                  FrameLayout #reel_video_interactions x=0-1440 y=160-2912
+                                                  FrameLayout #reel_player_footer_container x=0-1440 y=1456-2912
+                                                    FrameLayout x=0-1440 y=1456-2912
+                                                      FrameLayout #player_overlay x=0-1440 y=1456-2912
+                                                        ViewGroup x=0-1440 y=1456-2912
+                                                          ViewGroup x=0-1184 y=2596-2600
+                                                          ViewGroup x=0-1184 y=2600-2760
+                                                            ViewGroup x=64-615 y=2616-2744
+                                                              Button x=64-192 y=2616-2744
+                                                                ImageView desc="Go to channel @ArtemYashin" x=64-192 y=2616-2744
+                                                              ViewGroup x=224-615 y=2616-2744
+                                                                ViewGroup text="@ArtemYashin" desc="@ArtemYashin" x=224-583 y=2616-2744
+                                                                  Button text="@ArtemYashin" x=224-582 y=2616-2744
+                                                            Button desc="Subscribe to @ArtemYashin." x=615-929 y=2616-2744
+                                                              ViewGroup text="Subscribe" desc="Subscribe" x=663-881 y=2651-2708
+                                                          ViewGroup x=0-1184 y=2760-2864
+                                                            ViewGroup x=0-1184 y=2760-2864
+                                                              ViewGroup x=64-1184 y=2776-2848
+                                                                ViewGroup text="Did I steal my game?" desc="Did I steal my game?" x=64-1184 y=2776-2848
+                                                          ViewGroup x=1184-1440 y=1456-2912
+                                                            RadioButton desc="like this video along with 6 thousand other people" x=1184-1440 y=1456-1696
+                                                              ViewGroup x=1264-1360 y=1488-1584
+                                                                ImageView x=1264-1360 y=1488-1584
+                                                              ViewGroup text="6K" desc="6K" x=1184-1440 y=1599-1664
+                                                            Button desc="View 207 comments" x=1184-1440 y=1696-1936
+                                                              ViewGroup x=1264-1360 y=1728-1824
+                                                                ImageView x=1264-1360 y=1728-1824
+                                                              ViewGroup text="207" desc="207" x=1184-1440 y=1839-1904
+                                                            RadioButton desc="Save" x=1184-1440 y=1936-2176
+                                                              ViewGroup x=1264-1360 y=1968-2064
+                                                                ImageView x=1264-1360 y=1968-2064
+                                                              ViewGroup text="Save" desc="Save" x=1184-1440 y=2079-2144
+                                                            Button desc="Share this video" x=1184-1440 y=2176-2416
+                                                              ViewGroup x=1264-1360 y=2208-2304
+                                                                ImageView x=1264-1360 y=2208-2304
+                                                              ViewGroup text="Share" desc="Share" x=1184-1440 y=2319-2384
+                                                            Button desc="Remix" x=1184-1440 y=2416-2656
+                                                              ViewGroup x=1264-1360 y=2448-2544
+                                                                ImageView x=1264-1360 y=2448-2544
+                                                              ViewGroup text="Remix" desc="Remix" x=1184-1440 y=2559-2624
+                                                            Button desc="See more videos using this sound" x=1184-1440 y=2656-2912
+                                                              ImageView x=1256-1368 y=2712-2824
+                                                  View #reel_scrim_shorts_while_bottom_gradient x=0-1440 y=2272-2912
+                                    ViewGroup #reel_watch_player x=0-1440 y=160-2912
+                                      ViewGroup x=0-1440 y=160-2912
+                                        ViewGroup x=0-1440 y=160-2912
+                                          SurfaceView x=0-1440 y=160-2912
+                                      FrameLayout x=0-1440 y=160-2912
+                                    View #reel_scrim_shorts_while_top x=0-1440 y=160-544
+                          LinearLayout #appbar_layout x=0-1440 y=0-352
+                            FrameLayout #toolbar_container x=0-1440 y=0-352
+                              FrameLayout #collapsing_header_container [hidden] x=0-1440 y=0-0
+                              ViewGroup #toolbar x=0-1440 y=160-352
+                                ImageButton desc="Navigate up" x=0-224 y=160-352
+                                FrameLayout x=224-1440 y=160-352
+                                  FrameLayout x=224-1440 y=160-352
+                                  FrameLayout x=224-1440 y=160-352
+                                    ViewGroup x=224-1440 y=160-352
+                                      Button desc="Search" x=1104-1200 y=208-304
+                                      Button desc="More actions" x=1296-1392 y=208-304
+                                LinearLayoutCompat [hidden] x=1440-1440 y=160-352
+                      FrameLayout #root_pill_container [hidden] x=0-1440 y=2816-2816
+                      FrameLayout #pane_fragment_footer_container [hidden] x=0-1440 y=3168-3168
+                  FrameLayout #bottom_bar_container x=0-1440 y=2912-3168
+                    HorizontalScrollView #pivot_bar x=0-1440 y=2912-3168
+                      LinearLayout x=0-1440 y=2912-3104
+                        Button desc="Home" x=0-288 y=2912-3104
+                          FrameLayout #thumbnail_layout x=96-192 y=2933-3029
+                            ImageView #image x=96-192 y=2933-3029
+                          TextView #text text="Home" x=87-202 y=3037-3084
+                        Button desc="Shorts" x=288-576 y=2912-3104
+                          FrameLayout #thumbnail_layout x=384-480 y=2933-3029
+                            ImageView #image x=384-480 y=2933-3029
+                          TextView #text text="Shorts" x=370-494 y=3037-3084
+                        Button desc="Create" x=576-864 y=2912-3104
+                          ImageView #image x=648-792 y=2938-3082
+                        Button desc="Subscriptions: New content is available" x=864-1152 y=2912-3104
+                          FrameLayout #thumbnail_layout x=960-1056 y=2933-3029
+                            ImageView #image x=960-1056 y=2933-3029
+                          View #new_content_dot desc="New content available" x=1016-1064 y=2925-2973
+                          TextView #text text="Subscriptions" x=882-1134 y=3037-3084
+                        Button desc="You" x=1152-1440 y=2912-3104
+                          FrameLayout #thumbnail_layout x=1248-1344 y=2933-3029
+                            ImageView #pivot_bar_thumbnail x=1248-1344 y=2933-3029
+                          TextView #text text="You" x=1259-1333 y=3037-3084
+              FrameLayout [hidden] x=0-1440 y=0-160
+                View #global_status_bar_view [hidden] x=0-1440 y=0-160
+              View [hidden] x=0-4 y=0-4
+          ViewGroup #reel_time_bar x=0-1440 y=0-3168
+            SeekBar desc="0 minutes 2 seconds of 1 minute 13 seconds" x=0-1440 y=2814-3006

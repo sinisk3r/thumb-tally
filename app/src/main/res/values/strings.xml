@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Thumb Tally</string>
+    <string name="service_label">Thumb Tally</string>
+    <string name="service_description">Counts the YouTube Shorts, Instagram Reels, Snapchat Spotlight and regular YouTube videos you watch, notes the creator and caption, pops up a small counter, and (only if you turn it on) saves a small screenshot of each. It only wakes up while YouTube, Instagram or Snapchat is open. If a payment or bank app (Google Pay, PhonePe, Paytm and others) opens, it switches itself off so the payment works, and tells you. Everything stays on this phone.</string>
+</resources>

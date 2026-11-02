@@ -1,0 +1,176 @@
+ScreenInfo(kind=SHORT, creator=@jawed, caption=@DaquanWiltshire1, verified user, This started it all...... bruh 😳)
+
+FrameLayout x=0-1440 y=0-3168
+  LinearLayout x=0-1440 y=0-3168
+    FrameLayout x=0-1440 y=0-3168
+      LinearLayout #action_bar_root x=0-1440 y=0-3168
+        FrameLayout #content x=0-1440 y=0-3168
+          DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+            FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+              ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-3168
+                FrameLayout #global_slim_status_bar_container x=0-1440 y=0-3168
+                FrameLayout #accessibility_layer_container x=0-1440 y=0-3168
+                  FrameLayout #fullscreen_mode_container [hidden] x=0-1440 y=0-0
+                  ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-3168
+                    ViewGroup #next_gen_watch_layout_no_player_fragment_container x=0-1440 y=0-3168
+                      FrameLayout #watch_player desc="Video player" x=0-1440 y=160-1240
+                        ViewGroup #player_overlays x=0-1440 y=160-1240
+                          FrameLayout #player_overlays_custom_views_container x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                            FrameLayout x=0-1440 y=160-1240
+                          RelativeLayout x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                          View [hidden] x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                            FrameLayout x=0-1440 y=160-1240
+                              ViewGroup x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                            FrameLayout x=0-1440 y=160-1240
+                              ViewGroup [hidden] x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                            FrameLayout x=0-1440 y=160-1240
+                              ViewGroup [hidden] x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                            FrameLayout x=0-1440 y=160-1240
+                              ViewGroup x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                            FrameLayout #youtube_controls_overlay x=0-1440 y=160-1240
+                              FrameLayout #inset_controls_overlay_wrapper x=0-1440 y=160-1240
+                                FrameLayout #inset_overlay_view_layout x=0-1440 y=160-1240
+                                  ViewGroup #watch_while_time_bar_view_overlay x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                          FrameLayout x=0-1440 y=160-1240
+                        FrameLayout #player_fragment_container x=0-1440 y=160-1240
+                          ViewGroup #player_view x=0-1440 y=160-1240
+                            ViewGroup x=0-1440 y=160-1240
+                              ViewGroup x=0-1440 y=160-1240
+                                SurfaceView x=0-1440 y=160-1240
+                        View x=0-1 y=160-161
+                      ViewGroup #watch_while_time_bar_view x=0-1440 y=160-1308
+                        SeekBar desc="0 minutes 5 seconds of 0 minutes 19 seconds" x=0-1440 y=1164-1308
+                      ViewGroup #engagement_panel_wrapper x=0-1440 y=160-3168
+                      FrameLayout #video_metadata_layout x=0-1440 y=1240-3168
+                        View #watch_panel_scrim x=0-1440 y=1240-3168
+                        ViewGroup #watch_panel x=0-1440 y=1240-3168
+                          FrameLayout x=0-1440 y=1240-3168
+                            FrameLayout #video_info_loading_layout x=0-1440 y=1240-3168
+                              FrameLayout #sticky_header_container x=0-1440 y=1240-3168
+                                RecyclerView #watch_list [scrollable] x=0-1440 y=1240-3168
+                                  Button x=0-1440 y=1240-1522
+                                    ViewGroup text="Me at the zoo" desc="Me at the zoo" x=0-533 y=1304-1401
+                                    ViewGroup [hidden] x=14-1426 y=1262-1522
+                                    ViewGroup text="@jawed  " desc="@jawed  " x=48-244 y=1425-1490
+                                    ViewGroup text="20 million likes. 445 million views. 21 years ago more" desc="20 million likes. 445 million views. 21 years ago more" x=244-1055 y=1425-1490
+                                  ViewGroup x=0-1440 y=1522-1714
+                                    ViewGroup x=0-1440 y=1522-1714
+                                      ViewGroup x=48-522 y=1522-1714
+                                        ViewGroup x=48-522 y=1522-1714
+                                          Button desc="jawed 6.71M subscribers" x=48-176 y=1522-1714
+                                            ImageView x=48-176 y=1554-1682
+                                          ViewGroup x=208-522 y=1522-1714
+                                            Button desc="Subscribe to jawed." x=208-522 y=1556-1684
+                                              ViewGroup x=208-522 y=1592-1649
+                                                ViewGroup text="Subscribe" desc="Subscribe" x=208-522 y=1592-1649
+                                      ViewGroup x=620-1440 y=1522-1714
+                                        ViewGroup x=620-784 y=1522-1714
+                                          ViewGroup x=620-784 y=1522-1714
+                                            ToggleButton desc="like this video along with 20,098,910 other people" x=620-784 y=1522-1714
+                                              ViewGroup x=652-752 y=1568-1668
+                                                ViewGroup x=652-752 y=1568-1668
+                                                  ImageView x=652-752 y=1568-1668
+                                        ViewGroup x=784-948 y=1522-1714
+                                          ViewGroup x=784-948 y=1522-1714
+                                            ToggleButton desc="Dislike this video" x=784-948 y=1522-1714
+                                              ImageView x=818-914 y=1570-1666
+                                        ViewGroup x=948-1112 y=1522-1714
+                                          ViewGroup x=948-1112 y=1522-1714
+                                            Button desc="Share" x=948-1112 y=1522-1714
+                                              ImageView x=982-1078 y=1570-1666
+                                        ViewGroup x=1112-1276 y=1522-1714
+                                          ViewGroup x=1112-1276 y=1522-1714
+                                            Button desc="Ask" x=1112-1276 y=1522-1714
+                                              ImageView x=1146-1242 y=1570-1666
+                                        ViewGroup x=1276-1440 y=1522-1714
+                                          ViewGroup x=1276-1440 y=1522-1714
+                                            Button desc="More actions" x=1276-1440 y=1522-1714
+                                              ImageView x=1310-1406 y=1570-1666
+                                  ViewGroup x=0-1440 y=1714-2106
+                                    ViewGroup x=48-1392 y=1746-2074
+                                      ViewGroup x=48-1392 y=1746-1866
+                                        ViewGroup text="Comments" desc="Comments" x=96-370 y=1782-1858
+                                        ViewGroup text="10M" desc="10M" x=386-479 y=1797-1854
+                                        ViewGroup x=1248-1296 y=1802-1826
+                                        ViewGroup x=1248-1296 y=1802-1826
+                                        ViewGroup x=1312-1336 y=1802-1826
+                                      ViewGroup x=48-1392 y=1866-2058
+                                        ViewGroup x=48-1392 y=1866-2058
+                                          RecyclerView [scrollable] x=48-1392 y=1866-2058
+                                            ViewGroup x=48-1392 y=1866-2058
+                                              Button x=48-1392 y=1866-2058
+                                                ViewGroup [hidden] x=96-1344 y=1866-2042
+                                                ViewGroup [hidden] x=96-1344 y=1866-2042
+                                                  ViewGroup [hidden] x=96-1344 y=1866-2042
+                                                    ViewGroup text=" " desc=" " [hidden] x=96-96 y=1893-2015
+                                                ViewGroup [hidden] x=96-1344 y=1866-2042
+                                                  ViewGroup [hidden] x=96-1344 y=1866-2042
+                                                    ImageView [hidden] x=96-192 y=1906-2002
+                                                    ViewGroup text="@DaquanWiltshire1, verified user, This started it all...... bruh 😳" desc="@DaquanWiltshire1, verified user, This started it all...... bruh 😳" [hidden] x=224-1291 y=1918-1990
+                                                  ViewGroup [hidden] x=96-1344 y=1938-2042
+                                                ViewGroup x=96-1344 y=1866-2042
+                                                  ImageView x=96-192 y=1906-2002
+                                                  ViewGroup text="@DaquanWiltshire1, verified user, This started it all...... bruh 😳" desc="@DaquanWiltshire1, verified user, This started it all...... bruh 😳" x=224-1291 y=1918-1990
+                                  ViewGroup x=0-1440 y=2106-2138
+                                  ViewGroup x=0-1440 y=2138-3168
+                                    ViewGroup x=0-1440 y=2138-2346
+                                      ImageView x=64-208 y=2170-2314
+                                      ViewGroup desc="Shorts" x=256-466 y=2198-2286
+                                        ViewGroup text="Shorts" desc="Shorts" x=256-466 y=2198-2286
+                                    ViewGroup x=0-1440 y=2346-3168
+                                      RecyclerView [scrollable] x=0-1440 y=2346-3168
+                                        ViewGroup x=64-712 y=2346-3168
+                                          Button desc="How The Anti Paparazzi Scarf Works 😮, 22 million views - play Short" x=64-664 y=2346-3168
+                                            ViewGroup x=64-664 y=2346-3168
+                                              ImageView x=64-664 y=2346-3168
+                                              ViewGroup x=64-664 y=2346-3168
+                                                ImageView x=64-664 y=2346-3168
+                                              ViewGroup x=504-664 y=2346-2506
+                                                Button desc="More actions" x=576-648 y=2378-2450
+                                              ViewGroup x=64-664 y=3091-3168
+                                                ViewGroup x=96-632 y=3091-3168
+                                                  ViewGroup x=96-632 y=3091-3168
+                                                    ViewGroup text="How The Anti Paparazzi Scarf Works 😮" desc="How The Anti Paparazzi Scarf Works 😮" x=96-632 y=3091-3168
+                                                  ViewGroup [hidden] x=96-632 y=3168-3168
+                                                    ViewGroup text="22M views" desc="22M views" [hidden] x=96-632 y=3168-3168
+                                        ViewGroup x=712-1360 y=2346-3168
+                                          Button desc="Elon Musk vs SQL 😭, 11 million views - play Short" x=712-1312 y=2346-3168
+                                            ViewGroup x=712-1312 y=2346-3168
+                                              ImageView x=712-1312 y=2346-3168
+                                              ViewGroup x=712-1312 y=2346-3168
+                                                ImageView x=712-1312 y=2346-3168
+                                              ViewGroup x=1152-1312 y=2346-2506
+                                                Button desc="More actions" x=1224-1296 y=2378-2450
+                                              ViewGroup x=712-1312 y=3157-3168
+                                                ViewGroup x=744-1280 y=3157-3168
+                                                  ViewGroup x=744-1280 y=3157-3168
+                                                    ViewGroup text="Elon Musk vs SQL 😭" desc="Elon Musk vs SQL 😭" x=744-1280 y=3157-3168
+                                                  ViewGroup [hidden] x=744-1280 y=3168-3168
+                                                    ViewGroup text="11M views" desc="11M views" [hidden] x=744-1280 y=3168-3168
+                                        ViewGroup x=1360-1440 y=2346-3168
+                                          Button desc="Evil animal is evil | @DIEMARCHIVE, 1.9 million views - play Short" x=1360-1440 y=2346-3168
+                                            ViewGroup x=1360-1440 y=2346-3168
+                                              ImageView x=1360-1440 y=2346-3168
+                                              ViewGroup x=1360-1440 y=2346-3168
+                                                ImageView x=1360-1440 y=2346-3168
+                                              ViewGroup [hidden] x=1440-1440 y=2346-2506
+                                                Button desc="More actions" [hidden] x=1440-1440 y=2378-2450
+                                              ViewGroup x=1360-1440 y=3091-3168
+                                                ViewGroup x=1392-1440 y=3091-3168
+                                                  ViewGroup x=1392-1440 y=3091-3168
+                                                    ViewGroup text="Evil animal is evil | @DIEMARCHIVE" desc="Evil animal is evil | @DIEMARCHIVE" x=1392-1440 y=3091-3168
+                                                  ViewGroup [hidden] x=1392-1440 y=3168-3168
+                                                    ViewGroup text="1.9M views" desc="1.9M views" [hidden] x=1392-1440 y=3168-3168
+                    View #scrim_view x=0-1440 y=160-3168
+                  FrameLayout #bottom_bar_container [hidden] x=0-1440 y=3168-3168
+              FrameLayout [hidden] x=0-1440 y=0-160
+              View [hidden] x=0-4 y=0-4
+          ViewGroup #reel_time_bar x=0-1440 y=0-3168

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Two stacked vertical cards (a feed of shorts) with a play mark on the front one. 108dp canvas, art kept inside the 66dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#D62976"
+        android:pathData="M48,30h18a5,5 0,0 1,5 5v32a5,5 0,0 1,-5 5h-18a5,5 0,0 1,-5 -5v-32a5,5 0,0 1,5 -5z" />
+    <path
+        android:fillColor="#FF4E45"
+        android:pathData="M40,36h20a5,5 0,0 1,5 5v32a5,5 0,0 1,-5 5h-20a5,5 0,0 1,-5 -5v-32a5,5 0,0 1,5 -5z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M45,48.5v13a1.5,1.5 0,0 0,2.3 1.3l10.5,-6.5a1.5,1.5 0,0 0,0 -2.6l-10.5,-6.5a1.5,1.5 0,0 0,-2.3 1.3z" />
+</vector>
