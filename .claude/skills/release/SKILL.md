@@ -41,7 +41,7 @@ install and "Allow restricted settings" steps from the Drive txt.
 
 ## GitHub Releases (public, from 0.4)
 
-`gh release create v<version> app/build/outputs/apk/release/app-release.apk#ThumbTally-<version>.apk` with notes:
+Copy the APK to `ThumbTally-<version>.apk` first (a `#label` only renames the link, not the download), then `gh release create v<version> ThumbTally-<version>.apk` with notes:
 what changed, install steps (restricted settings), the OnePlus "toggle after update" note, and the signing
 certificate SHA-256 from `apksigner verify --print-certs` so people can check the APK. Only release builds signed
 with the upload key go here.
