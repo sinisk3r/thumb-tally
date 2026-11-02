@@ -1,6 +1,5 @@
 package com.srik.shortstracker.ui
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -72,10 +72,11 @@ fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
         ),
     )
 
+    // Shown outside the Scaffold, so it needs its own Surface for light-on-dark text in dark mode.
+    Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background, contentColor = MaterialTheme.colorScheme.onBackground) {
     Column(
         Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
             .safeDrawingPadding()
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 16.dp, vertical = 12.dp),
@@ -113,5 +114,6 @@ fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
             GhostButton(onClick = onDecline, modifier = Modifier.fillMaxWidth()) { Text("No thanks") }
         }
         Spacer(Modifier.height(8.dp))
+    }
     }
 }
