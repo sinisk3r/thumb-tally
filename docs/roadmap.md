@@ -8,6 +8,13 @@ Ordered roughly by value ÷ effort. Each item notes the files it touches.
 
 ## Next
 
+- **Instant "you opened Instagram while paused" reminder** (parked 2026-11-03). Today the check is a non-waking
+  5-minute alarm, so the reminder lands 5–8 min late. Option: while paused, a foreground service whose ongoing
+  notification is "Thumb Tally is paused — tap to resume", polling `UsageStatsManager` every ~5 s with the screen on,
+  stopped on screen-off or resume. Needs a `specialUse` foreground-service declaration for Play. `tracker/TrackingGuard.kt`.
+- **Show paused time** (parked 2026-11-03). While paused, read app time from Usage access and show
+  "Instagram: 14 min while paused (videos not counted)" in amber on Today, so pauses aren't silent gaps. Time only
+  fills gaps; counting still needs accessibility (owner: per-swipe counter is the product).
 - **Play Store readiness** — see `play-store.md`. Disclosure screen, signing, flavors, rename.
 - **Clean up inflated history** from pre-0.3 duplicate rows (owner to decide: wipe before 2026-10-22 or keep).
 - **"Take me back"** — tap a feed row to reopen it. YouTube: search intent for `title + channel` (nearly always the
