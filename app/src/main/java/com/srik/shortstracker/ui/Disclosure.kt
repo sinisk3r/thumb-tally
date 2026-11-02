@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -74,10 +75,11 @@ fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
 
     // Shown outside the Scaffold, so it needs its own Surface for light-on-dark text in dark mode.
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background, contentColor = MaterialTheme.colorScheme.onBackground) {
+    Column(Modifier.fillMaxSize().safeDrawingPadding()) {
+    // The text scrolls; the two buttons stay pinned underneath so nobody has to scroll to decide.
     Column(
         Modifier
-            .fillMaxSize()
-            .safeDrawingPadding()
+            .weight(1f)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
@@ -109,11 +111,15 @@ fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.enterRise(3),
         )
-        Column(Modifier.fillMaxWidth().enterRise(4), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            PrimaryButton(onClick = onAgree, modifier = Modifier.fillMaxWidth()) { Text("Agree and turn on") }
-            GhostButton(onClick = onDecline, modifier = Modifier.fillMaxWidth()) { Text("No thanks") }
-        }
-        Spacer(Modifier.height(8.dp))
+    }
+    HorizontalDivider(color = extraColors.line)
+    Row(
+        Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 12.dp).enterRise(4),
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        GhostButton(onClick = onDecline, modifier = Modifier.weight(1f)) { Text("No thanks") }
+        PrimaryButton(onClick = onAgree, modifier = Modifier.weight(1.4f)) { Text("Agree and turn on") }
+    }
     }
     }
 }
