@@ -44,6 +44,7 @@ import com.srik.shortstracker.data.TrackerConfig
 @Composable
 fun SettingsScreen(config: TrackerConfig, health: Health, viewModel: MainViewModel, modifier: Modifier = Modifier) {
     val context = LocalContext.current
+    val turnOnTracking = LocalTurnOnTracking.current
     var confirmDelete by remember { mutableStateOf(false) }
     val update = viewModel::updateConfig
 
@@ -64,7 +65,7 @@ fun SettingsScreen(config: TrackerConfig, health: Health, viewModel: MainViewMod
                         else -> "Running"
                     },
                     good = health.enabled && health.running,
-                    action = if (health.enabled && health.running) null else ("Fix" to { context.openAccessibilitySettings() }),
+                    action = if (health.enabled && health.running) null else ("Fix" to { turnOnTracking() }),
                 )
                 StatusRow(
                     title = "Background use",

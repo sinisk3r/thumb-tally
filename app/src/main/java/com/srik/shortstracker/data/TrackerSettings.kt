@@ -61,6 +61,8 @@ data class TrackerConfig(
     val pauseForPayments: Boolean = true,
     /** While tracking is off, a notification every so often (or when a watched app opens) to turn it back on. */
     val remindWhenOff: Boolean = true,
+    /** Agreed to the "what this app reads" screen; until then every "turn on" button shows it first. */
+    val disclosureAccepted: Boolean = false,
 )
 
 /** Shared by the app UI and the accessibility service; both run in the same process. */
@@ -87,6 +89,7 @@ class TrackerSettings private constructor(context: Context) {
             putBoolean(KEY_LONG_VIDEOS, next.trackLongVideos)
             putBoolean(KEY_PAUSE_PAYMENTS, next.pauseForPayments)
             putBoolean(KEY_REMIND_OFF, next.remindWhenOff)
+            putBoolean(KEY_DISCLOSURE, next.disclosureAccepted)
         }
         _state.value = next
     }
@@ -112,6 +115,7 @@ class TrackerSettings private constructor(context: Context) {
             trackLongVideos = prefs.getBoolean(KEY_LONG_VIDEOS, defaults.trackLongVideos),
             pauseForPayments = prefs.getBoolean(KEY_PAUSE_PAYMENTS, defaults.pauseForPayments),
             remindWhenOff = prefs.getBoolean(KEY_REMIND_OFF, defaults.remindWhenOff),
+            disclosureAccepted = prefs.getBoolean(KEY_DISCLOSURE, defaults.disclosureAccepted),
         )
     }
 
@@ -130,6 +134,7 @@ class TrackerSettings private constructor(context: Context) {
         private const val KEY_LONG_VIDEOS = "track_long_videos"
         private const val KEY_PAUSE_PAYMENTS = "pause_for_payments"
         private const val KEY_REMIND_OFF = "remind_when_off"
+        private const val KEY_DISCLOSURE = "disclosure_accepted"
 
         @Volatile private var instance: TrackerSettings? = null
 

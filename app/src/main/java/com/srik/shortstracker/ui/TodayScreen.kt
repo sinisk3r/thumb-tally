@@ -120,6 +120,7 @@ private fun Hero(summary: Summary, dailyLimit: Int, modifier: Modifier = Modifie
 @Composable
 private fun HealthBanner(health: Health, modifier: Modifier = Modifier) {
     val context = LocalContext.current
+    val turnOnTracking = LocalTurnOnTracking.current
     when (health.status) {
         HealthStatus.OK -> Row(modifier, verticalAlignment = Alignment.CenterVertically) {
             PulsingDot(extraColors.good)
@@ -151,7 +152,7 @@ private fun HealthBanner(health: Health, modifier: Modifier = Modifier) {
             )
             Spacer(Modifier.height(14.dp))
             FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                PrimaryButton(onClick = { context.openAccessibilitySettings() }) { Text("Turn on") }
+                PrimaryButton(onClick = { turnOnTracking() }) { Text("Turn on") }
                 GhostButton(onClick = { context.openAppInfo() }) { Text("App info") }
             }
         }
@@ -167,7 +168,7 @@ private fun HealthBanner(health: Health, modifier: Modifier = Modifier) {
             )
             Spacer(Modifier.height(14.dp))
             FlowRow(horizontalArrangement = Arrangement.spacedBy(10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                PrimaryButton(onClick = { context.openAccessibilitySettings() }) { Text("Accessibility") }
+                PrimaryButton(onClick = { turnOnTracking() }) { Text("Accessibility") }
                 if (!health.batteryUnrestricted) GhostButton(onClick = { context.requestUnrestrictedBattery() }) { Text("Allow background") }
             }
         }
