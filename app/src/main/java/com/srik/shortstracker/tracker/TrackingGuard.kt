@@ -33,7 +33,9 @@ import com.srik.shortstracker.data.TrackerSettings
  * service connects, so a working tracker costs nothing extra.
  */
 object TrackingGuard {
-    private const val CHANNEL = "tracking_status"
+    // Channel settings can't change once created, so a new id; the old one is deleted in show().
+    private const val CHANNEL = "tracking_paused"
+    private const val OLD_CHANNEL = "tracking_status"
     private const val NOTIFICATION_ID = 41
     private const val CHECK_EVERY_MS = 5 * 60_000L
     private const val PREFS = "tracking_guard"
@@ -146,8 +148,11 @@ object TrackingGuard {
     private fun show(context: Context, title: String, text: String) {
         if (!canNotify(context)) return
         val manager = context.getSystemService(NotificationManager::class.java) ?: return
+        manager.deleteNotificationChannel(OLD_CHANNEL)
+        // High importance + ongoing keeps "paused" near the top instead of sinking under chat and shopping
+        // alerts. It is cleared as soon as tracking is back on (onTrackingOn).
         manager.createNotificationChannel(
-            NotificationChannel(CHANNEL, "Tracking status", NotificationManager.IMPORTANCE_DEFAULT).apply {
+            NotificationChannel(CHANNEL, "Tracking paused", NotificationManager.IMPORTANCE_HIGH).apply {
                 description = "Tells you when tracking is paused, for example for a payment app."
             },
         )
@@ -162,7 +167,9 @@ object TrackingGuard {
             .setContentText(text)
             .setStyle(NotificationCompat.BigTextStyle().bigText(text))
             .setContentIntent(open)
-            .setAutoCancel(true)
+            .setOngoing(true)
+            .setCategory(NotificationCompat.CATEGORY_STATUS)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setOnlyAlertOnce(true)
             .build()
         manager.notify(NOTIFICATION_ID, notification)
