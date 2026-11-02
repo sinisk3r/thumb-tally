@@ -80,6 +80,8 @@ class ShortsAccessibilityService : AccessibilityService() {
     private var quickSkips = 0
     private var previewTaps = 0
     private var lastPreviewAt = 0L
+    /** Set while switching off for a payment app, which already posted its own notification. */
+    private var pausing = false
 
     // For the "battery" numbers in the app.
     private var cpuNanos = 0L
@@ -147,6 +149,7 @@ class ShortsAccessibilityService : AccessibilityService() {
     private fun pauseFor(paymentApp: String) {
         if (BuildConfig.DEBUG) Log.d(TAG, "pausing for $paymentApp")
         leave()
+        pausing = true
         TrackingGuard.notifyPaused(this, paymentApp)
         disableSelf()
     }
@@ -395,7 +398,10 @@ class ShortsAccessibilityService : AccessibilityService() {
         leave()
         handler.removeCallbacksAndMessages(null)
         runCatching { unregisterReceiver(screenOffReceiver) }
-        // Switched off (by the person, Android, or a payment pause): start the "tracking is off" reminders.
+        // Switched off in Accessibility settings (not a payment pause, which already said so, and not Android
+        // merely restarting us while it stays switched on): tell the person now, like Wispr Flow does.
+        if (!pausing && !TrackingGuard.isTrackingOn(this)) TrackingGuard.notifyTurnedOff(this)
+        // Then keep reminding while it stays off.
         TrackingGuard.startChecks(this)
         super.onDestroy()
     }

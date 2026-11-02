@@ -62,6 +62,13 @@ object TrackingGuard {
         return mode == AppOpsManager.MODE_ALLOWED
     }
 
+    /**
+     * Switched on *and* actually running. "On but not running" happens when a battery saver or a settings change
+     * stops the service without switching it off; it counts nothing, so it gets reminders too. The service runs
+     * in this process, so [ShortsAccessibilityService.running] is readable here.
+     */
+    fun isTrackingWorking(context: Context): Boolean = isTrackingOn(context) && ShortsAccessibilityService.running
+
     fun canNotify(context: Context): Boolean =
         Build.VERSION.SDK_INT < 33 ||
             ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
@@ -77,6 +84,17 @@ object TrackingGuard {
         startChecks(context)
     }
 
+    /** The person (or Android) just switched tracking off: say so right away instead of at the next check. */
+    fun notifyTurnedOff(context: Context) {
+        if (!TrackerSettings.get(context).state.value.remindWhenOff) return
+        prefs(context).edit { putLong(KEY_LAST_REMINDER, System.currentTimeMillis()) }
+        show(
+            context,
+            "Thumb Tally was switched off",
+            "Your Shorts and Reels aren't being counted. Tap to switch it back on.",
+        )
+    }
+
     /** Tracking came back: drop the reminder and stop checking. */
     fun onTrackingOn(context: Context) {
         context.getSystemService(NotificationManager::class.java)?.cancel(NOTIFICATION_ID)
@@ -85,7 +103,7 @@ object TrackingGuard {
 
     /** Start the reminder checks if tracking is off. Safe to call often. */
     fun startChecks(context: Context) {
-        if (isTrackingOn(context)) return
+        if (isTrackingWorking(context)) return
         prefs(context).edit { putLong(KEY_LAST_CHECK, System.currentTimeMillis()) }
         context.getSystemService(AlarmManager::class.java)?.setInexactRepeating(
             AlarmManager.ELAPSED_REALTIME, // not a wake-up alarm: it waits until the phone is awake anyway
@@ -97,8 +115,7 @@ object TrackingGuard {
 
     internal fun check(context: Context) {
         val now = System.currentTimeMillis()
-        val trackingOn = isTrackingOn(context)
-        if (trackingOn) {
+        if (isTrackingWorking(context)) {
             onTrackingOn(context)
             return
         }
