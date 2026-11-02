@@ -12,5 +12,5 @@
     android:canTakeScreenshot="true"
     android:description="@string/service_description"
     android:notificationTimeout="500"
-    android:packageNames="com.google.android.youtube,com.instagram.android,com.snapchat.android,com.google.android.apps.nbu.paisa.user,com.phonepe.app,net.one97.paytm,in.org.npci.upiapp,com.dreamplug.androidapp,com.mobikwik_new,com.sbi.lotusintouch,com.csam.icici.bank.imobile,com.snapwork.hdfc,com.axis.mobile,com.msf.kbank.mobile,com.bankofbaroda.mconnect"
+    android:packageNames="com.google.android.youtube,com.instagram.android,com.snapchat.android,com.google.android.apps.nbu.paisa.user,com.phonepe.app,net.one97.paytm,in.org.npci.upiapp,com.dreamplug.androidapp,com.mobikwik_new,com.sbi.lotusintouch,com.csam.icici.bank.imobile,com.snapwork.hdfc,com.hdfcbank.android.now,com.axis.mobile,com.msf.kbank.mobile,com.kotak.bank.mobile,com.ge.capital.konysbiapp,com.bankofbaroda.mconnect"
     tools:targetApi="30" />

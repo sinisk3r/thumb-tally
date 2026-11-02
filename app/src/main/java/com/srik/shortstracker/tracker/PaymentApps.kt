@@ -20,8 +20,11 @@ object PaymentApps {
         "com.sbi.lotusintouch" to "YONO SBI",
         "com.csam.icici.bank.imobile" to "iMobile",
         "com.snapwork.hdfc" to "HDFC Bank",
+        "com.hdfcbank.android.now" to "HDFC Bank",
         "com.axis.mobile" to "Axis Mobile",
         "com.msf.kbank.mobile" to "Kotak",
+        "com.kotak.bank.mobile" to "Kotak",
+        "com.ge.capital.konysbiapp" to "SBI Card",
         "com.bankofbaroda.mconnect" to "bob World",
     )
 
