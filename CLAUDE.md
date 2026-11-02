@@ -20,8 +20,9 @@ app/src/main/java/com/srik/shortstracker/
             ScreenshotStore             optional screenshots (off by default)
             PaymentApps, TrackingGuard  switch off for UPI/bank apps; "tracking is off" notifications + 5-min check
                                         (non-waking alarm, only while the service is off)
-  data/     Room DB (ViewEvent, ViewDao, AppDatabase + migrations), Stats (patterns, habits), TrackerSettings (prefs)
-  ui/       Compose screens (Today, Feed, Patterns, Settings), Theme.kt tokens, Motion.kt springs
+  data/     Room DB (ViewEvent, ViewDao, AppDatabase + migrations), Stats (patterns), Badges (13 good/cheeky badges),
+            TodayLines (the quip under "Today"), TrackerSettings (prefs)
+  ui/       Compose screens (Today, Feed, Patterns + BadgesScreen, Settings, Disclosure), Theme.kt tokens, Motion.kt springs
 app/src/test/  ScreenParserTest over real captured screens in resources/screens/, NudgesTest, StatsTest
 docs/       promo.html (design source of truth), roadmap.md (ideas, scope growth), play-store.md (launch gaps)
 .claude/skills/  phone-testing, add-tracked-app, release

@@ -1,5 +1,6 @@
 package com.srik.shortstracker.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.Spring
@@ -28,6 +29,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,6 +54,13 @@ import kotlin.math.roundToInt
 
 @Composable
 fun PatternsScreen(patterns: Patterns, days: Int, onDays: (Int) -> Unit, modifier: Modifier = Modifier) {
+    var showBadges by rememberSaveable { mutableStateOf(false) }
+    if (showBadges) {
+        BackHandler { showBadges = false }
+        BadgesScreen(patterns.badges, patterns.days, onBack = { showBadges = false }, modifier = modifier)
+        return
+    }
+    val onSeeAll = { showBadges = true }
     LazyColumn(
         modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
@@ -76,7 +87,7 @@ fun PatternsScreen(patterns: Patterns, days: Int, onDays: (Int) -> Unit, modifie
         }
         item { Headline(patterns, Modifier.enterRise(2)) }
         item { StatGrid(patterns, Modifier.enterRise(3)) }
-        if (patterns.habits.isNotEmpty()) item { HabitsCard(patterns.habits, Modifier.enterRise(4)) }
+        item { HabitsCard(patterns.habits, patterns.badges.size, onSeeAll, Modifier.enterRise(4)) }
         item { HeatmapCard(patterns, Modifier.enterRise(4)) }
         item { HourlyCard(patterns, Modifier.enterRise(5)) }
         if (patterns.longVideoMs > 0) {
@@ -110,15 +121,15 @@ private fun StatGrid(patterns: Patterns, modifier: Modifier = Modifier) {
     Column(modifier, verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             StatTile(
-                "Sittings", "${patterns.sessions}",
+                "🪑", "Sittings", "${patterns.sessions}",
                 "about ${"%.1f".format(patterns.sessions.toFloat() / patterns.days)} a day",
                 Modifier.weight(1f),
             )
-            StatTile("Typical sitting", Stats.formatDuration(patterns.avgSessionMs), "from first to last video", Modifier.weight(1f))
+            StatTile("⏱️", "Typical sitting", Stats.formatDuration(patterns.avgSessionMs), "from first to last video", Modifier.weight(1f))
         }
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             StatTile(
-                "Longest sitting",
+                "📏", "Longest sitting",
                 longest?.let { Stats.formatDuration(it.durationMs) } ?: "–",
                 longest?.let {
                     Instant.ofEpochMilli(it.startedAt).atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("EEE h:mm a")) +
@@ -127,7 +138,7 @@ private fun StatGrid(patterns: Patterns, modifier: Modifier = Modifier) {
                 Modifier.weight(1f),
             )
             StatTile(
-                "Late night",
+                "🌙", "Late night",
                 "${(patterns.lateNightShare * 100).roundToInt()}%",
                 "of shorts after 11 PM",
                 Modifier.weight(1f),
@@ -135,13 +146,13 @@ private fun StatGrid(patterns: Patterns, modifier: Modifier = Modifier) {
         }
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             StatTile(
-                "Quick skips",
+                "⏭️", "Quick skips",
                 "${(patterns.quickSkipShare * 100).roundToInt()}%",
                 "left within 2 seconds",
                 Modifier.weight(1f),
             )
             StatTile(
-                "Per Short",
+                "🎬", "Per Short",
                 if (patterns.avgShortMs == 0L) "–" else "${(patterns.avgShortMs / 1000f).roundToInt()} s",
                 "on average",
                 Modifier.weight(1f),
@@ -151,15 +162,31 @@ private fun StatGrid(patterns: Patterns, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun HabitsCard(habits: List<Habit>, modifier: Modifier = Modifier) {
-    Card(modifier) {
-        SectionTitle("Your habits")
+private fun HabitsCard(habits: List<Habit>, total: Int, onSeeAll: () -> Unit, modifier: Modifier = Modifier) {
+    Card(modifier.bouncyClick(onSeeAll)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            SectionTitle("Your habits", Modifier.weight(1f))
+            Text(
+                "${habits.size} of $total badges  ›",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(bottom = 12.dp),
+            )
+        }
+        if (habits.isEmpty()) {
+            Text(
+                "No badges yet. Keep scrolling and some will find you (that's not advice). Tap to see them all.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
         habits.forEachIndexed { index, habit ->
             Row(
                 Modifier.fillMaxWidth().padding(vertical = 8.dp).enterRise(index),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(habit.emoji, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.width(48.dp))
+                IconBubble(habit.emoji, size = 40)
+                Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
                     Text(habit.title, style = MaterialTheme.typography.titleMedium)
                     Text(habit.detail, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -170,9 +197,13 @@ private fun HabitsCard(habits: List<Habit>, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun StatTile(label: String, value: String, note: String, modifier: Modifier = Modifier) {
+private fun StatTile(icon: String, label: String, value: String, note: String, modifier: Modifier = Modifier) {
     Card(modifier) {
-        Eyebrow(label)
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            IconBubble(icon)
+            Spacer(Modifier.width(8.dp))
+            Eyebrow(label, Modifier.weight(1f))
+        }
         Spacer(Modifier.height(8.dp))
         Text(value, style = MaterialTheme.typography.headlineMedium, maxLines = 1)
         Text(note, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 2)

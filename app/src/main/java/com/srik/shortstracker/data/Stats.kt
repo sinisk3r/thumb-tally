@@ -49,6 +49,8 @@ data class Patterns(
     /** Average time on one short. */
     val avgShortMs: Long = 0,
     val habits: List<Habit> = emptyList(),
+    /** Every badge, earned or locked, for the badge collection. */
+    val badges: List<BadgeState> = emptyList(),
 )
 
 /** A badge for a viewing habit, good or cheeky. */
@@ -110,6 +112,7 @@ object Stats {
         val hourly = (0 until 24).map { hour -> heat.sumOf { it[hour] } }
         val perWeekday = heat.map { it.sum() }
         val sessions = sessions(shorts)
+        val badges = Badges.evaluate(shorts, sessions, zone)
         return Patterns(
             days = days,
             shorts = shorts.size,
@@ -125,7 +128,8 @@ object Stats {
             longVideoMs = inRange.filter { !it.isShort }.sumOf { it.durationMs },
             quickSkipShare = quickSkipShare(shorts),
             avgShortMs = shorts.filter { it.durationMs > 0 }.map { it.durationMs }.average().takeIf { !it.isNaN() }?.toLong() ?: 0,
-            habits = habits(shorts, sessions, zone),
+            badges = badges,
+            habits = badges.filter { it.earned }.map { Habit(it.badge.emoji, it.badge.title, it.detail) },
         )
     }
 
@@ -135,36 +139,9 @@ object Stats {
         return if (timed.isEmpty()) 0f else timed.count { it.durationMs < QUICK_SKIP_MS }.toFloat() / timed.size
     }
 
-    /** Badges for how you watch. Each needs enough data to mean something. */
-    fun habits(shorts: List<ViewEvent>, sessions: List<Session>, zone: ZoneId): List<Habit> = buildList {
-        val timed = shorts.filter { it.durationMs > 0 }
-        if (timed.size >= 20) {
-            val skip = quickSkipShare(shorts)
-            val avg = timed.sumOf { it.durationMs } / timed.size
-            if (skip >= 0.35f) {
-                add(Habit("⚡", "Speed skipper", "${(skip * 100).toInt()}% of Shorts gone in under 2 seconds. Picky, or bored?"))
-            } else if (avg >= 25_000 && skip < 0.15f) {
-                add(Habit("🤿", "Deep diver", "You give each Short about ${avg / 1000} seconds. You actually watch them."))
-            }
-        }
-        if (shorts.size >= 20) {
-            val late = shorts.count { Instant.ofEpochMilli(it.startedAt).atZone(zone).hour.let { h -> h >= 23 || h < 5 } }
-            if (late >= shorts.size / 4) add(Habit("🦉", "Night owl", "$late of your Shorts were after 11 PM."))
-            val top = shorts.mapNotNull { it.creator }.groupingBy { it }.eachCount().maxByOrNull { it.value }
-            if (top != null && top.value >= shorts.size * 0.15) {
-                add(Habit("💛", "Loyal fan", "${top.value} from ${top.key}. Maybe just subscribe?"))
-            }
-        }
-        sessions.maxByOrNull { it.views }?.takeIf { it.views >= 50 }?.let {
-            add(Habit("🍿", "Binge mode", "${it.views} Shorts in one sitting."))
-        }
-        shorts.mapNotNull { it.videoKey }.groupingBy { it }.eachCount().maxByOrNull { it.value }
-            ?.takeIf { it.value >= 3 }
-            ?.let { (key, times) ->
-                val who = key.split('|').getOrNull(1)?.takeIf { it.isNotBlank() }
-                add(Habit("🔁", "On repeat", "One video ${times} times${who?.let { " (from $it)" } ?: ""}. It must be good."))
-            }
-    }
+    /** Badges you have right now. The full list, locked ones included, is [Patterns.badges]. */
+    fun habits(shorts: List<ViewEvent>, sessions: List<Session>, zone: ZoneId): List<Habit> =
+        Badges.evaluate(shorts, sessions, zone).filter { it.earned }.map { Habit(it.badge.emoji, it.badge.title, it.detail) }
 
     /** Groups shorts (sorted oldest first) into sittings. */
     fun sessions(shorts: List<ViewEvent>, gapMs: Long = SESSION_GAP_MS): List<Session> {

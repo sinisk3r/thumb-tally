@@ -20,6 +20,8 @@ Ordered roughly by value ÷ effort. Each item notes the files it touches.
 - **"Take me back"** — tap a feed row to reopen it. YouTube: search intent for `title + channel` (nearly always the
   top hit) or the channel's Shorts tab. Instagram/Snapchat: the creator's profile (the exact video ID isn't on
   screen). A "danger zone" interstitial with rotating quotes before opening. `ui/FeedScreen.kt`, new `ui/TakeMeBack.kt`.
+- **Badges collection** — done 2026-11-03: 13 badges (`data/Badges.kt`), tap "Your habits" on Patterns. Still to
+  add: streaks, favourite creators.
 - **Badges and streaks** — rewatch badge (same `videoKey` ≥ 10 times), per-app streaks, longest streak, favourite
   creators (pin from feed). Pure logic in `data/Stats.kt` with tests; cards in `PatternsScreen`.
 - **Achievements via the pop-up** — the sarcastic "achievement unlocked" moments reuse `CounterOverlay` with the nudge

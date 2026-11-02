@@ -42,10 +42,12 @@ import com.srik.shortstracker.data.CreatorCount
 import com.srik.shortstracker.data.DayBar
 import com.srik.shortstracker.data.Stats
 import com.srik.shortstracker.data.Summary
+import com.srik.shortstracker.data.TodayLines
 import com.srik.shortstracker.data.TrackerConfig
 import com.srik.shortstracker.tracker.ShortsApp
 import java.time.Instant
 import java.time.LocalDate
+import java.time.LocalTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
@@ -56,6 +58,7 @@ fun TodayScreen(summary: Summary, config: TrackerConfig, health: Health, modifie
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
+        item { TodayTitle(summary, config.dailyLimit, Modifier.enterRise(0)) }
         item { Hero(summary, config.dailyLimit, Modifier.enterRise(0)) }
         item { HealthBanner(health, Modifier.enterRise(1)) }
         item { WeekCard(summary.week, Modifier.enterRise(2)) }
@@ -64,11 +67,35 @@ fun TodayScreen(summary: Summary, config: TrackerConfig, health: Health, modifie
     }
 }
 
+/** "TODAY" plus a line that gives the number its meaning; people remember the line, not the count. */
+@Composable
+private fun TodayTitle(summary: Summary, dailyLimit: Int, modifier: Modifier = Modifier) {
+    val today = LocalDate.now()
+    val line = TodayLines.pick(
+        TodayLines.Context(
+            today = summary.views,
+            yesterday = summary.week.getOrNull(summary.week.size - 2)?.total ?: 0,
+            hour = LocalTime.now().hour,
+            limit = dailyLimit,
+            seed = today.toEpochDay().toInt(),
+        ),
+    )
+    Column(modifier) {
+        ScreenTitle("Today", today.format(DateTimeFormatter.ofPattern("EEE d MMM")))
+        Text(
+            line,
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(top = 6.dp),
+        )
+    }
+}
+
 @Composable
 private fun Hero(summary: Summary, dailyLimit: Int, modifier: Modifier = Modifier) {
     val over = dailyLimit in 1 until summary.views
     Column(modifier.padding(top = 12.dp, bottom = 6.dp)) {
-        Eyebrow("Shorts & Reels · ${LocalDate.now().format(DateTimeFormatter.ofPattern("EEE d MMM"))}")
+        Eyebrow("Shorts & Reels")
         Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 6.dp)) {
             RollingNumber(
                 summary.views,
