@@ -19,13 +19,12 @@ description: Cut a build of Shorts Tracker for the owner or their friends — bu
 
 ## Signing
 
-Sideloaded builds currently use the debug key (`signingConfig = debug` in `app/build.gradle.kts`). Updates install
-over each other only while the key stays the same. Moving to a real key means friends must uninstall once (losing
-history) — do it once, before wider sharing, and tell the owner.
-
-A real upload key is a secret: the owner creates it (Android Studio → Build → Generate Signed Bundle) and keeps the
-keystore and passwords outside the repo (e.g. `~/.config/shorts-tracker/`), read via `local.properties` or env vars.
-Never invent, commit or print keystore passwords.
+From 0.4 the app id is `com.srik.thumbtally` (debug builds add `.debug`). Release builds are signed with the
+owner's upload key `~/.config/thumb-tally/upload.jks` (alias `thumbtally`); `app/build.gradle.kts` reads its
+password from the macOS Keychain item `thumb-tally-keystore`. Without that item the release silently falls back
+to the debug key: check with `apksigner verify --print-certs` (expect `CN=Srikar Kandikonda`) before sharing.
+Backup of the keystore + setup steps: Drive `My Drive/dev/android-shorts-tracker/signing-key-private/` (owner-only;
+never share that folder). Never print, invent or commit the password.
 
 ## Play Store (once set up — see docs/play-store.md)
 

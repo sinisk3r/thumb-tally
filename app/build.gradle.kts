@@ -11,18 +11,48 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.srik.shortstracker"
+        // Public id from 0.4 on (renamed from com.srik.shortstracker). It can never change once on a store.
+        // The Kotlin package (namespace) still says shortstracker; that's internal and fine.
+        applicationId = "com.srik.thumbtally"
         minSdk = 26
         targetSdk = 36
-        versionCode = 3
-        versionName = "0.3"
+        versionCode = 4
+        versionName = "0.4"
+    }
+
+    // The owner's upload key lives outside the repo; its password is read from the macOS Keychain
+    // (item "thumb-tally-keystore"), so it is never in a file, the repo or a log. Anyone else building
+    // from source gets a debug-signed release instead.
+    val keystore = file("${System.getProperty("user.home")}/.config/thumb-tally/upload.jks")
+    val keystorePassword: String? = if (!keystore.exists()) null else runCatching {
+        val result = providers.exec {
+            commandLine("security", "find-generic-password", "-s", "thumb-tally-keystore", "-w")
+            isIgnoreExitValue = true
+        }
+        if (result.result.get().exitValue == 0) result.standardOutput.asText.get().trim().ifEmpty { null } else null
+    }.getOrNull()
+
+    signingConfigs {
+        if (keystorePassword != null) {
+            create("upload") {
+                storeFile = keystore
+                storePassword = keystorePassword
+                keyAlias = "thumbtally"
+                keyPassword = keystorePassword
+            }
+        }
     }
 
     buildTypes {
+        debug {
+            // Lets a debug build sit next to the real app on the same phone.
+            applicationIdSuffix = ".debug"
+        }
         release {
-            // Sideloaded only, so the debug key is fine for sharing with friends for now.
-            signingConfig = signingConfigs.getByName("debug")
-            isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("upload") ?: signingConfigs.getByName("debug")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
