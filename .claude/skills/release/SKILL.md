@@ -1,6 +1,6 @@
 ---
 name: release
-description: Cut a build of Shorts Tracker for the owner or their friends — bump the version, run tests, build the release APK, copy it to Google Drive with the install notes, and put it on the owner's phone. Also lists the extra steps for a Play Store (AAB) or itch.io release. Use when asked to ship, share, hand over, or "give me" a build.
+description: Cut a build of Thumb Tally for the owner or their friends — bump the version, run tests, build the release APK, copy it to Google Drive with the install notes, and put it on the owner's phone. Also lists the extra steps for a Play Store (AAB) or itch.io release. Use when asked to ship, share, hand over, or "give me" a build.
 ---
 
 # Releasing
@@ -11,8 +11,8 @@ description: Cut a build of Shorts Tracker for the owner or their friends — bu
 2. **Bump** `versionCode` (+1) and `versionName` in `app/build.gradle.kts`. Update the title string in
    `ui/SettingsScreen.kt` if it shows the version.
 3. **Build:** `./gradlew assembleRelease` → `app/build/outputs/apk/release/app-release.apk`.
-4. **Share:** copy to `~/Library/CloudStorage/GoogleDrive-*/My Drive/dev/android-shorts-tracker/ShortsTracker-<version>.apk`
-   (never commit APKs). Update `How to install Shorts Tracker.txt` there if steps or supported apps changed.
+4. **Share:** copy to `~/Library/CloudStorage/GoogleDrive-*/My Drive/dev/android-shorts-tracker/ThumbTally-<version>.apk`
+   (never commit APKs). Update `How to install Thumb Tally.txt` there if steps or supported apps changed.
 5. **Owner's phone:** delete debug traces, then `adb install -r` the release APK (skill `phone-testing`). Confirm the
    accessibility service is still bound (Settings → Accessibility).
 6. Update README for user-visible changes. Tell the owner what changed and what's unverified.
@@ -38,3 +38,10 @@ never share that folder). Never print, invent or commit the password.
 
 Upload the release APK (same key as previous itch builds) with butler or the web UI; the page should repeat the
 install and "Allow restricted settings" steps from the Drive txt.
+
+## GitHub Releases (public, from 0.4)
+
+`gh release create v<version> app/build/outputs/apk/release/app-release.apk#ThumbTally-<version>.apk` with notes:
+what changed, install steps (restricted settings), the OnePlus "toggle after update" note, and the signing
+certificate SHA-256 from `apksigner verify --print-certs` so people can check the APK. Only release builds signed
+with the upload key go here.
