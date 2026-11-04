@@ -9,8 +9,11 @@ Ordered roughly by value ÷ effort. Each item notes the files it touches.
 ## Next
 
 - **Find the song** — done 2026-11-05 (0.4.1): `tracker/Songs.kt` reads "Artist · Title" from Instagram's and
-  Snapchat's audio line; Feed shows "♪ song", tap → Spotify / YouTube Music search. YouTube Shorts don't show the
-  song's name, so they get none.
+  Snapchat's audio line and YouTube's music pill ("Contains music from: …", only for real music); Feed shows
+  "♪ song", tap → Spotify / YouTube Music search. Verified live on all three menus' first hit.
+- **Check: same YouTube Short twice** (seen 2026-11-05 00:58, @ImanviEsmail "TUM TUM | Viral Dance Trend" listed
+  twice a few seconds apart, one row with the song, one without). Capture traces with the debug build to see
+  whether the key changed (title truncation?) before changing anything.
 - **Badges for using the feed** (owner idea, 2026-11-05): "Re-visitor" (reopened videos via Take me back),
   "Music enthusiast" (looked up songs). Needs those taps logged locally (new table or counters in prefs).
 - **Instant "you opened Instagram while paused" reminder** (parked 2026-11-03). Today the check is a non-waking

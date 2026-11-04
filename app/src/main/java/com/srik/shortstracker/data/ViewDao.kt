@@ -16,6 +16,9 @@ interface ViewDao {
     @Query("UPDATE views SET creator = :creator, caption = :caption, song = COALESCE(:song, song) WHERE id = :id")
     suspend fun updateDetails(id: Long, creator: String?, caption: String?, song: String?)
 
+    @Query("UPDATE views SET song = :song WHERE id = :id")
+    suspend fun setSong(id: Long, song: String)
+
     @Query("UPDATE views SET screenshotPath = :path WHERE id = :id")
     suspend fun setScreenshot(id: Long, path: String?)
 

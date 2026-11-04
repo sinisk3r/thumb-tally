@@ -37,7 +37,7 @@ private data class Point(val title: String, val body: String, val tone: Color? =
  * `service_description` in strings.xml and the privacy policy whenever what's read changes.
  */
 @Composable
-fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
+fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit, screenshots: Boolean, onScreenshots: (Boolean) -> Unit, keepDays: Int) {
     val points = listOf(
         Point(
             "What it reads",
@@ -63,8 +63,8 @@ fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
         ),
         Point(
             "Screenshots",
-            "Off unless you turn them on in Settings. If you do, small images stay on this phone and are deleted " +
-                "after the number of days you choose.",
+            "Off unless you turn them on (below, or later in Settings). If you do, small images stay on this phone " +
+                "and are deleted after the number of days you choose.",
         ),
         Point(
             "Stopping",
@@ -103,6 +103,16 @@ fun DisclosureScreen(onAgree: () -> Unit, onDecline: () -> Unit) {
                     }
                 }
             }
+        }
+        // Opt-in, never on by default (CLAUDE.md privacy rule), but offered here so people know it exists.
+        Card(Modifier.enterRise(3)) {
+            ToggleRow(
+                title = "Save a picture of each video",
+                subtitle = "Lets you see what you watched in your Feed. The images stay on this phone and are deleted after " +
+                    "$keepDays days. Android 11 or newer.",
+                checked = screenshots,
+                onChange = onScreenshots,
+            )
         }
         Text(
             "Next, Android opens Accessibility settings: tap Thumb Tally and switch it on. If Android says the " +

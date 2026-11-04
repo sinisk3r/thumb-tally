@@ -46,7 +46,7 @@ class ShortsAccessibilityService : AccessibilityService() {
 
     private data class Watching(
         val app: ShortsApp, val kind: ViewKind, val row: Deferred<Long>, val key: String,
-        val creator: String?, val caption: String?, val startedAt: Long,
+        val creator: String?, val caption: String?, val startedAt: Long, val song: String? = null,
     )
     private data class Recent(val row: Deferred<Long>, val kind: ViewKind, val key: String, val at: Long)
     private data class Candidate(val key: String, val since: Long)
@@ -191,6 +191,11 @@ class ShortsAccessibilityService : AccessibilityService() {
         }
         if (current != null && current.key == key) {
             candidate = null
+            if (current.song == null && info.song != null) {
+                // The music pill loaded after the video was saved.
+                watching = current.copy(song = info.song)
+                io.launch { dao.setSong(current.row.await(), info.song) }
+            }
             return
         }
         if (current != null && isLateTitle(current, info, now)) {
@@ -230,7 +235,7 @@ class ShortsAccessibilityService : AccessibilityService() {
         if (back != null) {
             // Swiped back to it, or back from a profile or search: keep counting it, not a new view.
             recent.remove(back)
-            watching = Watching(app, kind, back.row, key, info.creator, info.caption, now)
+            watching = Watching(app, kind, back.row, key, info.creator, info.caption, now, info.song)
         } else {
             val row = io.async {
                 dao.insert(
@@ -240,7 +245,7 @@ class ShortsAccessibilityService : AccessibilityService() {
                     ),
                 )
             }
-            watching = Watching(app, kind, row, key, info.creator, info.caption, now)
+            watching = Watching(app, kind, row, key, info.creator, info.caption, now, info.song)
             if (kind == ViewKind.SHORT) countShort(app, now, config)
             if (config.screenshotsEnabled && ++viewsSinceScreenshot >= config.screenshotEvery) {
                 viewsSinceScreenshot = 0

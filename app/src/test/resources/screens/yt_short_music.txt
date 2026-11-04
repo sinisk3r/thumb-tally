@@ -1,0 +1,88 @@
+captured with uiautomator dump (paused Short), converted to NodeSnap format
+
+FrameLayout x=0-1440 y=0-3168
+LinearLayout x=0-1440 y=0-3168
+  FrameLayout x=0-1440 y=0-3168
+    LinearLayout #action_bar_root x=0-1440 y=0-3168
+      FrameLayout #content x=0-1440 y=0-3168
+        DrawerLayout #more_drawer_container x=0-1440 y=0-3168
+          FrameLayout #slim_status_bar_player_container x=0-1440 y=0-3168
+            ViewGroup #navigation_bar_divider_frame x=0-1440 y=0-3168
+              FrameLayout #global_slim_status_bar_container x=0-1440 y=0-3168
+              FrameLayout #accessibility_layer_container x=0-1440 y=0-3168
+                ViewGroup #next_gen_watch_container_layout x=0-1440 y=0-3168
+                  ViewGroup #watch_while_layout_coordinator_layout x=0-1440 y=0-3168
+                    FrameLayout #fab_container x=0-1440 y=0-3168
+                    FrameLayout #pane_fragment_container x=0-1440 y=0-3168
+                      ScrollView #browse_fragment_layout_coordinator_layout x=0-1440 y=0-2912
+                        FrameLayout #pane_fragment_contents x=0-1440 y=0-2912
+                          FrameLayout x=0-1440 y=0-2912
+                            FrameLayout #fragment_container_view x=0-1440 y=0-2912
+                              LinearLayout x=0-1440 y=0-2912
+                                FrameLayout #reel_watch_fragment_root x=0-1440 y=160-2912
+                                  FrameLayout #reel_player_underlay x=0-1440 y=160-2912
+                                  FrameLayout #nerd_stats_container x=0-1440 y=160-2912
+                                    RelativeLayout x=0-1440 y=160-2912
+                                  ViewGroup #reel_watch_refresher x=0-1440 y=160-2912
+                                    RecyclerView #reel_recycler x=0-1440 y=160-2912
+                                      FrameLayout #reel_player_page_container x=0-1440 y=160-2912
+                                        FrameLayout #reel_player_page_content x=0-1440 y=160-2912
+                                          FrameLayout x=0-1440 y=160-2912
+                                            FrameLayout #reel_player_overlay_root x=0-1440 y=160-2912
+                                              FrameLayout x=0-1440 y=160-2912
+                                              FrameLayout #reel_player_overlay_container x=0-1440 y=160-2912
+                                                FrameLayout #reel_video_interactions x=0-1440 y=160-2912
+                                                FrameLayout #reel_player_footer_container x=0-1440 y=1456-2912
+                                                  FrameLayout x=0-1440 y=1456-2912
+                                                    FrameLayout #player_overlay x=0-1440 y=1456-2912
+                                                      yac x=0-1440 y=1456-2912
+                                                        ViewGroup x=0-1184 y=2456-2616
+                                                          View x=224-815 y=2472-2600
+                                                          ViewGroup x=847-1161 y=2472-2600
+                                                        ViewGroup x=0-1184 y=2616-2720
+                                                          ViewGroup x=64-1184 y=2632-2704
+                                                            View x=64-1184 y=2632-2704
+                                                        ViewGroup x=0-1184 y=2720-2864
+                                                          ViewGroup x=0-1162 y=2720-2864
+                                                            HorizontalScrollView x=0-1162 y=2720-2864
+                                                              Button desc="Bum Bum Bum 🔥✨#shorts #trending #dance #viral #tiktok #viral #meghachaube" x=64-597 y=2744-2840
+                                                              Button desc="Original Sound (Contains music from: Intenso boom boom ( Acompanha o Grave ) · DJ Guuga & Dj Gege)" x=629-1162 y=2744-2840
+                                                        ViewGroup x=1184-1440 y=1456-2912
+                                                View #reel_scrim_shorts_while_bottom_gradient x=0-1440 y=2272-2912
+                                  ViewGroup #reel_watch_player x=0-1440 y=160-2912
+                                    ViewGroup x=0-1440 y=160-2912
+                                      ViewGroup x=0-1440 y=160-2912
+                                        SurfaceView x=0-1440 y=160-2912
+                                    FrameLayout x=0-1440 y=160-2912
+                                  View #reel_scrim_shorts_while_top x=0-1440 y=160-544
+                        LinearLayout #appbar_layout x=0-1440 y=0-352
+                          FrameLayout #toolbar_container x=0-1440 y=0-352
+                            ViewGroup #toolbar x=0-1440 y=160-352
+                              ImageButton desc="Navigate up" x=0-224 y=160-352
+                              FrameLayout x=224-1440 y=160-352
+                                FrameLayout x=224-1440 y=160-352
+                                FrameLayout x=224-1440 y=160-352
+                                  ViewGroup x=224-1440 y=160-352
+                                    ViewGroup x=224-1248 y=160-352
+                                      ViewGroup x=224-1232 y=176-336
+                                        ViewGroup desc="Search viral dance choreography" x=228-1076 y=176-336
+                                        ViewGroup desc="Search viral dance choreography" x=1076-1228 y=176-336
+                                          ImageView x=1108-1180 y=220-292
+                                    Button desc="More actions" x=1296-1392 y=208-304
+                FrameLayout #bottom_bar_container x=0-1440 y=2912-3168
+                  HorizontalScrollView #pivot_bar x=0-1440 y=2912-3168
+                    LinearLayout x=0-1440 y=2912-3104
+                      Button desc="Home" x=0-360 y=2912-3104
+                        ImageView #image x=132-228 y=2992-3088
+                      Button desc="Shorts" x=360-720 y=2912-3104
+                        ImageView #image x=492-588 y=2992-3088
+                      Button desc="Create" x=720-1080 y=2912-3104
+                        ImageView #image x=852-948 y=2992-3088
+                      Button desc="You" x=1080-1440 y=2912-3104
+                        FrameLayout #thumbnail_layout x=1212-1308 y=2992-3088
+                          ImageView #pivot_bar_thumbnail x=1212-1308 y=2992-3088
+            FrameLayout x=0-1440 y=0-160
+              View #global_status_bar_view x=0-1440 y=0-160
+            View x=0-4 y=0-4
+        ViewGroup #reel_time_bar x=0-1440 y=0-3168
+          SeekBar desc="0 minutes 2 seconds of 0 minutes 11 seconds" x=0-1440 y=2814-3006

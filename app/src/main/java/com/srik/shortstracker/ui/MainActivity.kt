@@ -110,6 +110,9 @@ private fun MainScreen(viewModel: MainViewModel) {
                 context.openAccessibilitySettings()
             },
             onDecline = { showDisclosure = false },
+            screenshots = config.screenshotsEnabled,
+            onScreenshots = { on -> viewModel.updateConfig { it.copy(screenshotsEnabled = on) } },
+            keepDays = config.retentionDays,
         )
         return
     }

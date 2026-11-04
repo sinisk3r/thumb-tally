@@ -49,19 +49,21 @@ object ScreenParser {
         val shortsPlayer = nodes.any {
             it.idName in setOf("reel_watch_player", "reel_player_page_container") && it.height >= height * 0.5
         }
-        if (shortsPlayer) return parseYouTubeShort(nodes)
+        if (shortsPlayer) return parseYouTubeShort(nodes, height)
         // The watch page; the mini player (a small box over the home feed) doesn't count.
         val watchPlayer = nodes.any { it.idName == "watch_player" && it.width >= width * 0.9 }
         if (watchPlayer) return parseYouTubeVideo(nodes)
         return ScreenInfo()
     }
 
-    private fun parseYouTubeShort(nodes: List<NodeSnap>): ScreenInfo {
+    private fun parseYouTubeShort(nodes: List<NodeSnap>, height: Int): ScreenInfo {
+        // The music pill sits in the bottom row next to the title, only when the sound uses real music.
+        val song = nodes.firstNotNullOfOrNull { node -> if (node.top >= height * 0.75) Songs.fromLabel(node.desc) else null }
         // The channel row only shows on the plain player, not when comments or the description cover it.
         val anchorAt = nodes.indexOfFirst { node ->
             node.desc?.let { GO_TO_CHANNEL.containsMatchIn(it) || it == "Collaboration channels" } == true
         }
-        if (anchorAt < 0) return ScreenInfo(ViewKind.SHORT)
+        if (anchorAt < 0) return ScreenInfo(ViewKind.SHORT, song = song)
         val anchor = nodes[anchorAt]
         val after = nodes.drop(anchorAt + 1)
         val creator = anchor.desc?.let { GO_TO_CHANNEL.find(it)?.groupValues?.get(1) }
@@ -70,7 +72,7 @@ object ScreenParser {
         val title = after.firstOrNull { node ->
             node.top >= anchor.bottom && node.label?.trim()?.let(::isContent) == true
         }?.label?.let(::cleanCaption)
-        return ScreenInfo(ViewKind.SHORT, creator, title, key = "yt-short|${creator.orEmpty()}|${title.orEmpty()}")
+        return ScreenInfo(ViewKind.SHORT, creator, title, key = "yt-short|${creator.orEmpty()}|${title.orEmpty()}", song = song)
     }
 
     private fun parseYouTubeVideo(nodes: List<NodeSnap>): ScreenInfo {
