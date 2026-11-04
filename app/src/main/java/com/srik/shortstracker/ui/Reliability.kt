@@ -17,8 +17,6 @@ data class Health(
     val connectedAt: Long = 0,
     val lastActiveAt: Long = 0,
     val cpuMsToday: Long = 0,
-    /** Usage access granted, so "tracking is off" reminders only come when a watched app was opened. */
-    val usageAccess: Boolean = false,
     /** Notifications allowed (always true before Android 13). */
     val canNotify: Boolean = true,
 ) {
@@ -71,10 +69,6 @@ fun Context.openAppNotificationSettings() {
     runCatching {
         startActivity(Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, packageName))
     }
-}
-
-fun Context.openUsageAccessSettings() {
-    runCatching { startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)) }
 }
 
 fun Context.openUrl(url: String) {

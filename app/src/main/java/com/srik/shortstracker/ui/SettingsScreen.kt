@@ -114,20 +114,6 @@ fun SettingsScreen(config: TrackerConfig, health: Health, viewModel: MainViewMod
                 if (!health.canNotify) {
                     StatusRow(title = "Notifications", value = "Off", good = false, action = "Allow" to { context.openAppNotificationSettings() })
                 }
-                if (config.remindWhenOff) {
-                    StatusRow(
-                        title = "Smarter reminders",
-                        value = "On",
-                        good = health.usageAccess,
-                        action = if (health.usageAccess) null else ("Allow" to { context.openUsageAccessSettings() }),
-                    )
-                    Text(
-                        if (health.usageAccess) "You'll only be reminded when you open YouTube, Instagram or Snapchat while tracking is off."
-                        else "Allow Usage access and you'll only be reminded when you actually open YouTube, Instagram or Snapchat. Without it, a reminder every few hours.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
             }
         }
         item {
@@ -187,9 +173,15 @@ fun SettingsScreen(config: TrackerConfig, health: Health, viewModel: MainViewMod
                     checked = config.trackLongVideos,
                     onChange = { on -> update { it.copy(trackLongVideos = on) } },
                 )
-                ChoiceRow("Daily Shorts limit", listOf(0, 30, 50, 100, 200), config.dailyLimit, { if (it == 0) "Off" else "$it" }) { limit ->
+                ChoiceRow("Daily limit", listOf(0, 30, 50, 100, 200), config.dailyLimit, { if (it == 0) "Off" else "$it" }) { limit ->
                     update { it.copy(dailyLimit = limit) }
                 }
+                Text(
+                    "Shorts, Reels and Spotlight together; regular YouTube videos don't count. Nothing gets blocked: " +
+                        "the pop-up nudges you at the limit and Today's bar turns amber.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
         }
         item {

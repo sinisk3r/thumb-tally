@@ -65,7 +65,6 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
             connectedAt = trackerHealth.connectedAt(),
             lastActiveAt = trackerHealth.lastActiveAt(),
             cpuMsToday = trackerHealth.cpuMsToday(),
-            usageAccess = TrackingGuard.hasUsageAccess(app),
             canNotify = TrackingGuard.canNotify(app),
         )
         // Tracking off (and not just because the app was opened for the first time): keep reminders running.

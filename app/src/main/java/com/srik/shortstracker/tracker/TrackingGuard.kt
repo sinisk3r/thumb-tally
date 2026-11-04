@@ -2,19 +2,15 @@ package com.srik.shortstracker.tracker
 
 import android.Manifest
 import android.app.AlarmManager
-import android.app.AppOpsManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.app.usage.UsageEvents
-import android.app.usage.UsageStatsManager
 import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.Process
 import android.os.SystemClock
 import android.provider.Settings
 import androidx.core.app.NotificationCompat
@@ -53,13 +49,6 @@ object TrackingGuard {
         return enabled.split(':').any {
             it.equals(me.flattenToString(), ignoreCase = true) || it.equals(me.flattenToShortString(), ignoreCase = true)
         }
-    }
-
-    fun hasUsageAccess(context: Context): Boolean {
-        val ops = context.getSystemService(AppOpsManager::class.java) ?: return false
-        @Suppress("DEPRECATION")
-        val mode = ops.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), context.packageName)
-        return mode == AppOpsManager.MODE_ALLOWED
     }
 
     /**
@@ -120,46 +109,20 @@ object TrackingGuard {
             return
         }
         val prefs = prefs(context)
-        val lastCheck = prefs.getLong(KEY_LAST_CHECK, now - CHECK_EVERY_MS)
-        prefs.edit { putLong(KEY_LAST_CHECK, now) }
-        val usage = hasUsageAccess(context)
-        val decision = OffReminder.decide(
+        val remind = OffReminder.shouldRemind(
             now = now,
             trackingOn = false,
             remindersOn = TrackerSettings.get(context).state.value.remindWhenOff,
             lastReminderAt = prefs.getLong(KEY_LAST_REMINDER, 0),
             pausedAt = prefs.getLong(KEY_PAUSED_AT, 0),
-            hasUsageAccess = usage,
-            openedSinceLastCheck = if (usage) lastWatchedAppOpened(context, lastCheck, now) else null,
-        ) ?: return
+        )
+        if (!remind) return
         prefs.edit { putLong(KEY_LAST_REMINDER, now) }
-        when (decision) {
-            is Reminder.Missed -> show(
-                context,
-                "Thumb Tally is paused",
-                "You opened ${decision.app.appName}, but nothing's being counted. Tap to switch tracking back on.",
-            )
-            Reminder.Off -> show(
-                context,
-                "Thumb Tally is paused",
-                "Your Shorts and Reels aren't being counted right now. Tap to switch tracking back on.",
-            )
-        }
-    }
-
-    private fun lastWatchedAppOpened(context: Context, from: Long, to: Long): ShortsApp? {
-        val stats = context.getSystemService(UsageStatsManager::class.java) ?: return null
-        val events = runCatching { stats.queryEvents(from, to) }.getOrNull() ?: return null
-        val event = UsageEvents.Event()
-        var found: ShortsApp? = null
-        while (events.hasNextEvent()) {
-            events.getNextEvent(event)
-            @Suppress("DEPRECATION") // MOVE_TO_FOREGROUND == ACTIVITY_RESUMED, and works back to API 26.
-            if (event.eventType == UsageEvents.Event.MOVE_TO_FOREGROUND) {
-                ShortsApp.fromPackage(event.packageName)?.let { found = it }
-            }
-        }
-        return found
+        show(
+            context,
+            "Thumb Tally is paused",
+            "Your Shorts and Reels aren't being counted right now. Tap to switch tracking back on.",
+        )
     }
 
     private fun show(context: Context, title: String, text: String) {
