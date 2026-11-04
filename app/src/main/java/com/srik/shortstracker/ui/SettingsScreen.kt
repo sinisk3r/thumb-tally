@@ -205,6 +205,19 @@ fun SettingsScreen(config: TrackerConfig, health: Health, viewModel: MainViewMod
         }
         item {
             Card(Modifier.enterRise(6)) {
+                SectionTitle("Feedback")
+                Text(
+                    "Counts look off, an idea, or a badge you'd love? Tell Srikar. It opens your email app; " +
+                        "Thumb Tally itself sends nothing.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(10.dp))
+                GhostButton(onClick = { context.sendFeedback() }) { Text("Send feedback") }
+            }
+        }
+        item {
+            Card(Modifier.enterRise(6)) {
                 SectionTitle("Troubleshooting")
                 ToggleRow(
                     title = "Save screen dumps",
@@ -309,3 +322,19 @@ private fun <T> ChoiceRow(title: String, options: List<T>, selected: T, label: (
         }
     }
 }
+
+/** Opens the email app with a short template. No network from this app (CLAUDE.md privacy rule). */
+private fun android.content.Context.sendFeedback() {
+    val body = "\n\n---\nThumb Tally ${BuildConfig.VERSION_NAME} · ${Build.MANUFACTURER} ${Build.MODEL} · Android ${Build.VERSION.RELEASE}"
+    val mail = Intent(Intent.ACTION_SENDTO, android.net.Uri.parse("mailto:"))
+        .putExtra(Intent.EXTRA_EMAIL, arrayOf(FEEDBACK_EMAIL))
+        .putExtra(Intent.EXTRA_SUBJECT, "Thumb Tally feedback")
+        .putExtra(Intent.EXTRA_TEXT, body)
+    try {
+        startActivity(mail)
+    } catch (_: android.content.ActivityNotFoundException) {
+        Toast.makeText(this, "No email app found. Write to $FEEDBACK_EMAIL", Toast.LENGTH_LONG).show()
+    }
+}
+
+private const val FEEDBACK_EMAIL = "srikar.kandikonda@gmail.com"
