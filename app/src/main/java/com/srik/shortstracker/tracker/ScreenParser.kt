@@ -33,11 +33,12 @@ object ScreenParser {
     private val SKIP_LABELS = setOf("ai content", "follow", "following", "subscribe", "subscribed", "sponsored", "paid partnership")
 
     fun parse(app: ShortsApp, root: NodeSnap, screenHeight: Int): ScreenInfo {
-        val nodes = root.flatten().filter { it.visible }
+        val all = root.flatten()
+        val nodes = all.filter { it.visible }
         val width = root.right.takeIf { it > 0 } ?: nodes.maxOfOrNull { it.right } ?: 0
         return when (app) {
             ShortsApp.YOUTUBE -> parseYouTube(nodes, width, screenHeight)
-            ShortsApp.INSTAGRAM -> parseInstagram(nodes, width, screenHeight)
+            ShortsApp.INSTAGRAM -> parseInstagram(nodes, all, width, screenHeight)
             ShortsApp.SNAPCHAT -> parseSnapchat(nodes, width, screenHeight)
         }
     }
@@ -83,20 +84,24 @@ object ScreenParser {
         return ScreenInfo(ViewKind.VIDEO, channel, title, key = "yt-video|${channel.orEmpty()}|$title")
     }
 
-    private fun parseInstagram(nodes: List<NodeSnap>, width: Int, height: Int): ScreenInfo {
+    private fun parseInstagram(nodes: List<NodeSnap>, all: List<NodeSnap>, width: Int, height: Int): ScreenInfo {
         val reelsViewer = nodes.any {
             it.idName in setOf("clips_viewer_view_pager", "clips_video_container") && it.height >= height * 0.6
         }
-        if (reelsViewer) return parseInstagramReel(nodes, width, height)
+        if (reelsViewer) return parseInstagramReel(nodes, all, width, height)
         return parseInstagramFeed(nodes, height)
     }
 
-    private fun parseInstagramReel(nodes: List<NodeSnap>, width: Int, height: Int): ScreenInfo {
+    private fun parseInstagramReel(nodes: List<NodeSnap>, all: List<NodeSnap>, width: Int, height: Int): ScreenInfo {
         val authorAt = nodes.indexOfFirst { it.idName == "clips_author_username" }
         val author = nodes.getOrNull(authorAt)
         val creator = author?.label?.trim()
             ?: nodes.firstNotNullOfOrNull { node -> node.desc?.let { REEL_BY.find(it.trim())?.groupValues?.get(1)?.trimEnd('.') } }
             ?: return ScreenInfo(ViewKind.SHORT)
+        // The keyboard (typing a comment) hides the author and caption rows; the same Reel is still playing.
+        if (author == null && all.any { it.idName == "clips_author_username" && !it.visible }) {
+            return ScreenInfo(ViewKind.SHORT, creator)
+        }
         // The caption is the line just under the author row, starting at the left edge (not the tab bar).
         val caption = author?.let { a ->
             nodes.drop(authorAt + 1).firstOrNull { node ->

@@ -16,8 +16,8 @@ android {
         applicationId = "com.srik.thumbtally"
         minSdk = 26
         targetSdk = 36
-        versionCode = 4
-        versionName = "0.4"
+        versionCode = 5
+        versionName = "0.4.1"
     }
 
     // The owner's upload key lives outside the repo; its password is read from the macOS Keychain

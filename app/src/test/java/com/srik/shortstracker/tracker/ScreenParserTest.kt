@@ -79,6 +79,17 @@ class ScreenParserTest {
     }
 
     @Test
+    fun `instagram keyboard over the comments keeps the same reel`() {
+        // Owner report 2026-11-05: tapping "Add a comment" counted a new Reel. The keyboard hides the author and
+        // caption rows, so the key lost its caption and looked like a different video.
+        val open = ig("ig_reel_comments_composer")
+        assertEquals("ig-reel|rysiek_films|System Of A Down · Toxicity", open.key)
+        val typing = ig("ig_reel_keyboard")
+        assertEquals(ViewKind.SHORT, typing.kind)
+        assertNull(typing.key)
+    }
+
+    @Test
     fun `instagram feed video counts after settling`() {
         val a = ig("ig_feed_a")
         assertEquals(ViewKind.SHORT, a.kind)
