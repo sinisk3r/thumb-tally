@@ -90,6 +90,18 @@ class ScreenParserTest {
     }
 
     @Test
+    fun `songs come from the audio line, not from guessing`() {
+        assertEquals("System Of A Down · Toxicity", ig("ig_reel_comments_composer").song)
+        assertEquals("Lipps Inc. · Funkytown", ig("ig_feed_a").song)
+        assertNull(ig("ig_reel").song)                 // "AI content" sits where the song would
+        assertNull(snap("snap_spot_d").song)           // "Original sound · james_condy"
+        assertNull(yt("yt_short_a").song)              // Shorts don't show the song's name
+        assertEquals("Lipps Inc. Funkytown", Songs.searchQuery("Lipps Inc. · Funkytown"))
+        assertNull(Songs.fromLabel("rysiek_films · Original audio"))
+        assertNull(Songs.fromLabel("Hyderabad, India"))
+    }
+
+    @Test
     fun `instagram feed video counts after settling`() {
         val a = ig("ig_feed_a")
         assertEquals(ViewKind.SHORT, a.kind)

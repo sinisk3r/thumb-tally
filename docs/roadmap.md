@@ -8,13 +8,11 @@ Ordered roughly by value ÷ effort. Each item notes the files it touches.
 
 ## Next
 
-- **Bug: opening the keyboard counts a new Reel** (owner report, 2026-11-05). Typing a comment or search inside
-  Instagram makes the counter tick. Capture the screen with the keyboard open (skill `phone-testing`, debug trace
-  dumps), add a fixture + test, then fix in `tracker/ScreenParser.kt` / `ShortsAccessibilityService`. Likely the IME
-  window or a resized view tree yields a different key; a covered player should give a null key.
-- **Find the song** (owner idea, 2026-11-05). Lots of Reels are music; the song name is usually in the caption or
-  the audio label. Tap a feed row's song to search Spotify / YouTube Music (plain search intents, no network from
-  this app). Needs the audio label captured from real screens first. `ui/FeedScreen.kt`.
+- **Find the song** — done 2026-11-05 (0.4.1): `tracker/Songs.kt` reads "Artist · Title" from Instagram's and
+  Snapchat's audio line; Feed shows "♪ song", tap → Spotify / YouTube Music search. YouTube Shorts don't show the
+  song's name, so they get none.
+- **Badges for using the feed** (owner idea, 2026-11-05): "Re-visitor" (reopened videos via Take me back),
+  "Music enthusiast" (looked up songs). Needs those taps logged locally (new table or counters in prefs).
 - **Instant "you opened Instagram while paused" reminder** (parked 2026-11-03). Today the check is a non-waking
   5-minute alarm, so the reminder lands 5–8 min late. Option: while paused, a foreground service whose ongoing
   notification is "Thumb Tally is paused — tap to resume", polling `UsageStatsManager` every ~5 s with the screen on,
@@ -24,7 +22,7 @@ Ordered roughly by value ÷ effort. Each item notes the files it touches.
   fills gaps; counting still needs accessibility (owner: per-swipe counter is the product).
 - **Play Store readiness** — see `play-store.md`. Disclosure screen, signing, flavors, rename.
 - **Clean up inflated history** from pre-0.3 duplicate rows (owner to decide: wipe before 2026-10-22 or keep).
-- **"Take me back"** — tap a feed row to reopen it. YouTube: search intent for `title + channel` (nearly always the
+- **"Take me back"** (owner asked again 2026-11-05: "search for the reel or short on YouTube to revisit") — tap a feed row to reopen it. YouTube: search intent for `title + channel` (nearly always the
   top hit) or the channel's Shorts tab. Instagram/Snapchat: the creator's profile (the exact video ID isn't on
   screen). A "danger zone" interstitial with rotating quotes before opening. `ui/FeedScreen.kt`, new `ui/TakeMeBack.kt`.
 - **Badges collection** — done 2026-11-03: 13 badges (`data/Badges.kt`), tap "Your habits" on Patterns. Still to

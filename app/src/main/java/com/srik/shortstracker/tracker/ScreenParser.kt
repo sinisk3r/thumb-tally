@@ -12,6 +12,8 @@ data class ScreenInfo(
     val key: String? = null,
     /** How long a video must stay on screen before it counts. Used for autoplaying feed videos. */
     val settleMs: Long = 0,
+    /** "Artist · Title" from the app's audio line, when it shows one (see [Songs]). Not part of [key]. */
+    val song: String? = null,
 )
 
 /**
@@ -109,18 +111,33 @@ object ScreenParser {
                     node.label?.trim()?.let(::isContent) == true
             }?.label?.let(::cleanCaption)
         }
-        return ScreenInfo(ViewKind.SHORT, creator, caption, key = "ig-reel|$creator|${caption.orEmpty()}")
+        // The audio line sits in the same band, just under the author's name.
+        val song = author?.let { a ->
+            nodes.drop(authorAt + 1).firstNotNullOfOrNull { node ->
+                if (node.top >= a.top && node.top < a.bottom + height * 0.08 && node.left < width * 0.3) {
+                    Songs.fromLabel(node.label)
+                } else {
+                    null
+                }
+            }
+        }
+        return ScreenInfo(ViewKind.SHORT, creator, caption, key = "ig-reel|$creator|${caption.orEmpty()}", song = song)
     }
 
     /** A video post in the home feed counts as a Reel once it fills most of the screen for a moment. */
     private fun parseInstagramFeed(nodes: List<NodeSnap>, height: Int): ScreenInfo {
         val video = nodes.filter { it.idName == "video_container" }.maxByOrNull { it.height } ?: return ScreenInfo()
         if (video.height < height * 0.45) return ScreenInfo()
-        val header = nodes.firstOrNull { node ->
+        val headerNode = nodes.firstOrNull { node ->
             node.idName == "row_feed_profile_header" && node.top in (video.top - height / 10)..(video.top + height / 10)
-        }?.desc ?: return ScreenInfo(ViewKind.SHORT, settleMs = FEED_SETTLE_MS)
+        }
+        val header = headerNode?.desc ?: return ScreenInfo(ViewKind.SHORT, settleMs = FEED_SETTLE_MS)
         val creator = POSTED.find(header)?.groupValues?.get(1)
-        return ScreenInfo(ViewKind.SHORT, creator, null, key = "ig-feed|$header", settleMs = FEED_SETTLE_MS)
+        // The line under the name is the song or a place; only a song has "Artist · Title".
+        val song = nodes.firstNotNullOfOrNull { node ->
+            if (node.idName == "secondary_label" && node.top in headerNode.top..headerNode.bottom) Songs.fromLabel(node.label) else null
+        }
+        return ScreenInfo(ViewKind.SHORT, creator, null, key = "ig-feed|$header", settleMs = FEED_SETTLE_MS, song = song)
     }
 
     /**
@@ -138,7 +155,7 @@ object ScreenParser {
             .toList()
         val creator = lines.firstOrNull() ?: return ScreenInfo(ViewKind.SHORT)
         val caption = lines.getOrNull(1)?.let(::cleanCaption)
-        return ScreenInfo(ViewKind.SHORT, creator, caption, key = "snap|$creator|${caption.orEmpty()}")
+        return ScreenInfo(ViewKind.SHORT, creator, caption, key = "snap|$creator|${caption.orEmpty()}", song = Songs.fromLabel(caption))
     }
 
     private fun isContent(text: String): Boolean =

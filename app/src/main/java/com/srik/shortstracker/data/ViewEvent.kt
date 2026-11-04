@@ -20,4 +20,6 @@ data class ViewEvent(
     @ColumnInfo(defaultValue = "short") val kind: String = "short",
     /** Identifies the video (creator + title), so watching it again later can be spotted. Null before v3. */
     val videoKey: String? = null,
+    /** "Artist · Title" when the app showed the song (Instagram, Snapchat). Null before v4. */
+    val song: String? = null,
 )

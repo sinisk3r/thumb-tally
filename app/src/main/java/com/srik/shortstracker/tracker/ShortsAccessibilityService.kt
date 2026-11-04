@@ -196,7 +196,7 @@ class ShortsAccessibilityService : AccessibilityService() {
         if (current != null && isLateTitle(current, info, now)) {
             // Same video, its title just finished loading.
             watching = current.copy(key = key, caption = info.caption)
-            io.launch { dao.updateDetails(current.row.await(), info.creator, info.caption) }
+            io.launch { dao.updateDetails(current.row.await(), info.creator, info.caption, info.song) }
             return
         }
 
@@ -236,7 +236,7 @@ class ShortsAccessibilityService : AccessibilityService() {
                 dao.insert(
                     ViewEvent(
                         app = app.packageName, startedAt = now, creator = info.creator, caption = info.caption,
-                        kind = kind.key, videoKey = key,
+                        kind = kind.key, videoKey = key, song = info.song,
                     ),
                 )
             }

@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -35,6 +38,7 @@ import coil.compose.AsyncImage
 import com.srik.shortstracker.data.Stats
 import com.srik.shortstracker.data.ViewEvent
 import com.srik.shortstracker.tracker.ShortsApp
+import com.srik.shortstracker.tracker.Songs
 import com.srik.shortstracker.tracker.ViewKind
 import java.io.File
 import java.time.Instant
@@ -132,9 +136,12 @@ private fun FeedRow(event: ViewEvent, zone: ZoneId, onImage: (String) -> Unit, m
                 overflow = TextOverflow.Ellipsis,
                 color = if (event.creator == null) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurface,
             )
-            event.caption?.let {
+            // Rows from before v4 have no song, but a Reel with no caption showed its audio line there.
+            val song = event.song ?: Songs.fromLabel(event.caption)
+            event.caption?.takeIf { it.trim() != song }?.let {
                 Text(it, style = MaterialTheme.typography.bodyMedium, maxLines = 2, overflow = TextOverflow.Ellipsis)
             }
+            song?.let { SongLine(it) }
             Spacer(Modifier.height(3.dp))
             Text(
                 listOfNotNull(
@@ -145,6 +152,51 @@ private fun FeedRow(event: ViewEvent, zone: ZoneId, onImage: (String) -> Unit, m
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+    }
+}
+
+/** "♪ Artist · Title": tap to look the song up in Spotify or YouTube Music (the app if installed, else the web). */
+@Composable
+private fun SongLine(song: String) {
+    val context = LocalContext.current
+    var open by remember { mutableStateOf(false) }
+    Box {
+        Text(
+            "♪ $song",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.primary,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.padding(top = 2.dp).bouncyClick { open = true },
+        )
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(text = { Text("Find on Spotify") }, onClick = { open = false; findSong(context, song, spotify = true) })
+            DropdownMenuItem(text = { Text("Find on YouTube Music") }, onClick = { open = false; findSong(context, song, spotify = false) })
+        }
+    }
+}
+
+private fun findSong(context: android.content.Context, song: String, spotify: Boolean) {
+    val q = android.net.Uri.encode(Songs.searchQuery(song))
+    val view = android.content.Intent.ACTION_VIEW
+    val tries = if (spotify) {
+        listOf(
+            android.content.Intent(view, android.net.Uri.parse("spotify:search:$q")),
+            android.content.Intent(view, android.net.Uri.parse("https://open.spotify.com/search/$q")),
+        )
+    } else {
+        val web = "https://music.youtube.com/search?q=$q"
+        listOf(
+            android.content.Intent(view, android.net.Uri.parse(web)).setPackage("com.google.android.apps.youtube.music"),
+            android.content.Intent(view, android.net.Uri.parse(web)),
+        )
+    }
+    for (intent in tries) {
+        try {
+            context.startActivity(intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK))
+            return
+        } catch (_: android.content.ActivityNotFoundException) {
         }
     }
 }
